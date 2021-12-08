@@ -1,4 +1,5 @@
 .container-home{
+    background-position: center;
     background-image: url(https://wallpaperbat.com/img/568408-blue-star-wars-wallpaper-top-free-blue-star-wars-background.png);
     background-size: cover;
     padding-top: 150px;
@@ -6,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-repeat: no-repeat;
 }
 
 .container-home .options{

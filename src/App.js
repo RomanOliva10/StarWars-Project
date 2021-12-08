@@ -3,14 +3,14 @@ import { Fragment } from 'react';
 import './App.css';
 import Home from './components/home/home';
 import Nav from './components/nav/nav';
-import Prueba from './components/prueba/prueba';
+// import Prueba from './components/prueba/prueba';
 
 function App() {
   return (
     <Fragment>
-      {/* <Nav/>
-      <Home/> */}
-      <Prueba/>
+      <Nav/>
+      <Home/>
+      {/* <Prueba/> */}
     </Fragment>
   );
 }

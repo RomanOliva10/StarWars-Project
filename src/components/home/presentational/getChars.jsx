@@ -1,11 +1,11 @@
-
-import characters from "../mocks/characters"
-
+import React, {useState} from 'react';
+import "./styles.css";
+import Card from './card';
 import axios from "axios";
-import React, { useState, useEffect } from "react";
 
-const baseURL = "https://swapi.dev/api/people/";
-const img = [
+const baseURLP = "https://swapi.dev/api/people/";
+
+const imgCharacters = [
     "./img/characters/luke-skywalker.jpeg",
     "./img/characters/Anakin-Skywalker.jpeg",
     "./img/characters/c-3po.jpeg",
@@ -18,25 +18,23 @@ const img = [
     "./img/characters/han-solo.jpeg",
     "./img/characters/Yoda.jpeg"
 ];
-let i = 0;
 
-export default function Prueba() {
-    const [data, setData] = useState({ results: [] });
-  axios
-    .get(baseURL)
+function GetAllCharacters() {
+    const [dataP,setDataP] = useState({ results: [] });
+
+    axios
+    .get(baseURLP)
     .then((res) => {
-      setData(res.data);
+        setDataP(res.data);
     })
     .catch((err) => err);
-    console.log(data)
     return (
-        <div>
-            {data.results.map((ele, idx)=>(
-                <div key={idx}>
-                    <p>{ele.name}</p>
-                    <img src={img[idx]}></img>
-                </div>
-            ))}
+        <div className="getAll">
+            
+            {dataP.results.map((ele,idx)=> <Card key={idx} datos={ele} img={imgCharacters[idx]}/>)}
+            
         </div>
     )
 }
+
+export default GetAllCharacters;
