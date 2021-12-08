@@ -49,3 +49,16 @@ img{
     color: white;
     font-size: 0.5rem;
 }
+
+@media screen and (max-width: 1024px) {
+    .card {
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .card {
+        width: 80%;
+    }
+}
