@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
-import './characters-get.css';
-import FilmsCarousel from "./films-carousel/film-carousel";
+import '../characters-get/characters-get.css';
+import FilmsCarousel from "../characters-get/films-carousel/film-carousel";
 import axios from "axios";
 import { useLocation } from "react-router";
 import Spinner from "../spinner/spinner";
 import Error from '../error/error';
-import { imgCharacters } from '../imgData';
+import { imgVehicles2 } from '../imgData';
 
 const dataFilm = [
 
@@ -50,23 +50,23 @@ function click(e){
         
 } 
 
-export default function CharactersGet(){
+export default function VehiclesGet(){
     // Obtenemos la ubicacion para extraer el ID
     const location = useLocation();
     let id = location.pathname.split('/')[2];
     
-    let [character, setCharacter] = useState([]);
+    let [vehicle, setVehicle] = useState([]);
     let [error404, setError404] = useState(false);
 
     useEffect(() => {
-        const URL = `https://swapi.dev/api/people/${id}`;
+        const URL = `https://swapi.dev/api/vehicles/${id}`;
 
         axios
         .get(URL)
         .then(data => {  
             console.log(data);
             if (data.status === 200) {
-                setCharacter(data);
+                setVehicle(data);
                 setError404(false);
             } else {
                 setError404(true);
@@ -79,63 +79,63 @@ export default function CharactersGet(){
         });
     }, [id]);
     
-    console.log(character);
+    console.log(vehicle);
     return(
         <Fragment>
         {
             error404 ?
             <Error msg="not found" code="404" /> :
-            character.length === 0 ?
+            vehicle.length === 0 ?
             <Spinner msg="loading" /> :
             <div className="main-get">
             <div className="line-card">
                 <div className="container-card-get" onClick={click}>
 
                     <div className="container-img-description">
-                        <img className="img-main-description" src={`http://localhost:3000/${imgCharacters[id-1]}`} /> 
+                        <img className="img-main-description" src={`http://localhost:3000/${imgVehicles2[id]}`} /> 
                         <div className="efecto"></div>
                     </div>
 
                 
                     <div className="description-card-get">
-                        <h3>{character.data.name}</h3>
-                        <p>{character.data.description}</p>
+                        <h3>{vehicle.data.name}</h3>
+                        <p>{vehicle.data.description}</p>
                     </div>
 
                     <div className="column-description-card disabled">
 
                         <div className="description-physical-card-get">
 
-                            <h3>Physical description</h3>
+                            <h3>Description</h3>
 
                             <div className="row-physical-card">
-                                <span className="physical-category-card">Species:</span>
-                                <span>{character.data.species}</span>
+                                <span className="physical-category-card">Model:</span>
+                                <span>{vehicle.data.model}</span>
                             </div>
 
                             <div className="row-physical-card">
-                                <span className="physical-category-card" >Gender:</span>
-                                <span>{character.data.gender}</span>
+                                <span className="physical-category-card" >Class:</span>
+                                <span>{vehicle.data.vehicle_class}</span>
                             </div>
 
                             <div className="row-physical-card">
-                                <span className="physical-category-card" >Height:</span>
-                                <span>{character.data.height}</span>
+                                <span className="physical-category-card" >Cost:</span>
+                                <span>{vehicle.data.cost_in_credits}</span>
                             </div>
 
                             <div className="row-physical-card">
-                                <span className="physical-category-card">Mass:</span>
-                                <span>{character.data.mass}</span>
+                                <span className="physical-category-card">Length:</span>
+                                <span>{vehicle.data.length}</span>
                             </div>
 
                             <div className="row-physical-card">
-                                <span className="physical-category-card" >Eye color:</span>
-                                <span>{character.data.eye_color}</span>
+                                <span className="physical-category-card" >Capacity:</span>
+                                <span>{vehicle.data.cargo_capacity}</span>
                             </div>    
 
                             <div className="row-physical-card disabled">
-                                <span className="physical-category-card" >Skin color:</span>
-                                <span>{character.data.skin_color}</span>
+                                <span className="physical-category-card" >Max speed:</span>
+                                <span>{vehicle.data.max_atmosphering_speed}</span>
                             </div>
 
                         </div>
@@ -145,12 +145,12 @@ export default function CharactersGet(){
                             <h3>Biography</h3>
 
                             <div className="row-bio-card">
-                                <span>homeworld:</span>
-                                <span>{character.data.homeworld}</span>
+                                <span>Manufacturer:</span>
+                                <span>{vehicle.data.manufacturer}</span>
                             </div>
                             <div className="row-bio-card">
-                                <span>birth year:</span>
-                                <span>{character.data.birth_year}</span>
+                                <span>Created:</span>
+                                <span>{vehicle.data.created}</span>
                             </div>
 
                         </div>
@@ -167,4 +167,3 @@ export default function CharactersGet(){
         </Fragment>
     );
 }
-

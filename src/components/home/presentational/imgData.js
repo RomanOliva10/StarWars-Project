@@ -24,3 +24,16 @@ export const imgCharacters = [
     "./img/characters/Obi-Wan-Kenobi.jpeg",
 ];
 
+export const imgVehicles2 = [
+    "","","","",
+    "./img/vehicles/sandcrawler.jpeg","",
+    "./img/vehicles/T-16.png",
+    "./img/vehicles/Landspeeder.jpg",
+    "./img/vehicles/TIE-Fighter.jpeg","","","","","",
+    "./img/vehicles/snowspeeder.jpg","",
+    "./img/vehicles/TIE_Bomber.png","",
+    "./img/vehicles/AT-AT.jpg",
+    "./img/vehicles/AT-ST.png",
+    "./img/vehicles/cloudcar.jpg","","","",
+    "./img/vehicles/Sail_Barge.png"
+];
