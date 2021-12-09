@@ -7,6 +7,7 @@ import "./home.css"
 import GetAll from './presentational/getAll'
 import GetAllCharacters from './presentational/getChars';
 import GetAllVehicles from './presentational/getVehicles';
+import CharactersGet from './presentational/characters-get/characters-get';
 
 export default function Home() {
 
@@ -40,6 +41,7 @@ export default function Home() {
             <Routes>
                 <Route path="/" element={<GetAll dataP={dataP} dataV={dataV} />} />
                 <Route path="/Characters" element={<GetAllCharacters dataP={dataP} />} />
+                <Route path="/Characters/:id" element={<CharactersGet />} />
                 <Route path="/Vehicles" element={<GetAllVehicles dataV={dataV} />} />
             </Routes>
             </Fragment>

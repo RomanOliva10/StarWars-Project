@@ -1,0 +1,17 @@
+.error-container {
+    color: #fff;
+    text-shadow: 5px 5px 5px #000;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin: 50px;
+}
+.error-text,
+.error-code {
+    font-family: "Star Jedi";
+    font-size: 50px;
+}
+.error-text {
+    color: red;
+}
+  
