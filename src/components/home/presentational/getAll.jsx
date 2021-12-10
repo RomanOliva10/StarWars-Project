@@ -11,12 +11,12 @@ function GetAll({dataP, dataV}) {
             {
                 dataV.results.length === 0 ? 
                 <Spinner msg="loading vehicles" />:
-                dataV.results.map((ele,idx)=> <Card key={idx} datos={ele} img={imgVehicles[idx]}/>)
+                dataV.results.map((ele,idx)=> <Card key={idx} type="Vehicles" datos={ele} img={imgVehicles[idx]}/>)
             }
             {
                 dataP.results.length === 0 ? 
                 <Spinner msg="loading characters" />:
-                dataP.results.map((ele,idx)=> <Card key={idx} datos={ele} img={imgCharacters[idx]}/>)
+                dataP.results.map((ele,idx)=> <Card key={idx} type="Characters" datos={ele} img={imgCharacters[idx]}/>)
             }
         </div>
     )

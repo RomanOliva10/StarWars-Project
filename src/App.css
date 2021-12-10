@@ -6,3 +6,11 @@
   box-sizing: border-box;
   font-family: 'Star Jedi', arial;
 }
+
+body{
+    background-position: center;
+    background-image: url(https://wallpaperbat.com/img/568408-blue-star-wars-wallpaper-top-free-blue-star-wars-background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}

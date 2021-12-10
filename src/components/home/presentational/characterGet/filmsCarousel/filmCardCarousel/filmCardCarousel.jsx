@@ -1,11 +1,12 @@
 import React from "react";
+import './filmCardCarousel.css'
 
-export default function ItemFilm(prop){
+export default function FilmCardCarousel(prop){
 
     let {title, img} = prop.data;
 
     return(
-            <div className={`item-film ${prop.classe}`}>
+            <div className={`film`}>
                 <img src={img} alt="" />
                 <h4>{title}</h4>
             </div>

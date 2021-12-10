@@ -12,7 +12,7 @@ function GetAllVehicles({dataV}) {
             {
                 dataV.results.length === 0 ? 
                 <Spinner msg="loading vehicles" />:
-                dataV.results.map((ele,idx)=> <Card key={idx} datos={ele} img={imgVehicles[idx]}/>)
+                dataV.results.map((ele,idx)=> <Card key={idx} type="Vehicles" datos={ele} img={imgVehicles[idx]}/>)
             }
         </div>
     )
