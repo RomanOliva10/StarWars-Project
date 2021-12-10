@@ -1,10 +1,10 @@
 import React from 'react';
-import { imgCharacters } from './imgData';
+import { imgCharacters } from '../../../../mocks/imgData';
 
-import "./styles.css";
+import "../getAll.css";
 
-import Card from './card';
-import Spinner from './spinner/spinner';
+import Card from '../card';
+import Spinner from "../../../../spinner/spinner";
 
 
 function GetAllCharacters({dataP}) {

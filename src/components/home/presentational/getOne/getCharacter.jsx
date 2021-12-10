@@ -1,17 +1,17 @@
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router";
-import Spinner from "../spinner/spinner";
-import Error from '../error/error';
-import { imgCharacters } from '../imgData';
+import Spinner from "../../../spinner/spinner";
+import Error from '../../../error/error';
+import { imgCharacters } from '../../../mocks/imgData';
 
 //Style
-import './characterGet.css';
+import './get.css';
 //DataMock
 import dataFilm from "../../../mocks/films";
 //Components
 import FilmsCarousel from "./filmsCarousel/filmCarousel";
-import DescriptionColumn from "./descriptionColumn/descriptionColumn.jsx";
+import DescriptionColumn from "./description/descriptionColumn/descriptionColumn";
 
 
 export default function CharacterGet(prop){

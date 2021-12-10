@@ -4,11 +4,11 @@ import axios from 'axios';
 
 import "./home.css"
 
-import GetAll from './presentational/getAll'
-import GetAllCharacters from './presentational/getChars';
-import GetAllVehicles from './presentational/getVehicles';
-import CharacterGet from './presentational/characterGet/characterGet';
-import VehicleGet from './presentational/vehicleGet/vehicleGet';
+import GetAll from './presentational/getAll/getAll'
+import GetAllCharacters from './presentational/getAll/getAllCharacters/getChars';
+import GetAllVehicles from './presentational/getAll/getAllVehicles/getVehicles';
+import CharacterGet from './presentational/getOne/getCharacter';
+import VehicleGet from './presentational/getOne/getVehicle';
 
 export default function Home() {
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import "./styles.css";
+import "./getAll.css";
 import Card from './card';
-import Spinner from './spinner/spinner';
-import { imgVehicles, imgCharacters } from './imgData';
+import Spinner from "../../../spinner/spinner";
+import { imgVehicles, imgCharacters } from '../../../mocks/imgData';
 
 
 function GetAll({dataP, dataV}) {   

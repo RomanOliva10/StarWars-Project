@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import './descriptionColumn.css'
 
 //components
-import RowDescription from "./rowDescription/rowDescription";
+import RowDescription from "../rowDescription/rowDescription";
 
 export default function DescriptionColumn(prop){
 

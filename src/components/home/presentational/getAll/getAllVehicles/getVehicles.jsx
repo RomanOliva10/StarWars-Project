@@ -1,11 +1,10 @@
 import React from 'react';
-import { imgVehicles } from './imgData';
+import { imgVehicles } from '../../../../mocks/imgData';
 
-import "./styles.css";
+import "../getAll.css";
 
-import Card from './card';
-import Spinner from './spinner/spinner';
-
+import Card from '../card';
+import Spinner from "../../../../spinner/spinner";
 function GetAllVehicles({dataV}) {
     return (
         <div className="getAll">
