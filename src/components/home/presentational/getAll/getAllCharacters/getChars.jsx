@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { imgCharacters } from '../../../../mocks/imgData';
 
 import "../getAll.css";
@@ -15,6 +16,15 @@ function GetAllCharacters({dataP}) {
                 <Spinner msg="loading characters" />:
                 dataP.results.map((ele,idx)=> <Card key={idx} type="Characters" datos={ele} img={imgCharacters[idx]}/>)
             }
+            <Link className="add-card" to='/AddCharacters'>
+                    <div className="add-container-img">
+                        <div className='Add'>
+                            <i class="fas fa-plus"></i>
+                            <span>Add</span>
+                        </div>
+                        <p> Character </p>
+                    </div>
+            </Link>
         </div>
     )
 }

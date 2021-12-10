@@ -9,6 +9,8 @@ import GetAllCharacters from './presentational/getAll/getAllCharacters/getChars'
 import GetAllVehicles from './presentational/getAll/getAllVehicles/getVehicles';
 import CharacterGet from './presentational/getOne/getCharacter';
 import VehicleGet from './presentational/getOne/getVehicle';
+import AddCharacter from '../forms/AddCharacter';
+import AddVehicle from '../forms/AddVehicle';
 
 export default function Home() {
 
@@ -36,7 +38,7 @@ export default function Home() {
             <div className="options">
                 <Link to="/">All Databank</Link>
                 <Link to="/Characters">All Characters</Link>
-                <Link to="/Vehicles">All vehicles</Link>
+                <Link to="/Vehicles">All Vehicles</Link>
             </div>
             <Fragment>
             <Routes>
@@ -45,6 +47,8 @@ export default function Home() {
                 <Route path="/Characters/:id" element={<CharacterGet type={"character"}/>} />
                 <Route path="/Vehicles" element={<GetAllVehicles dataV={dataV} />} />
                 <Route path="/Vehicles/:id" element={<VehicleGet type={"vehicle"}/>} />
+                <Route path="/AddCharacters" element={<AddCharacter />}/>
+                <Route path="/AddVehicle" element={<AddVehicle />}/>
             </Routes>
             </Fragment>
         </div>
