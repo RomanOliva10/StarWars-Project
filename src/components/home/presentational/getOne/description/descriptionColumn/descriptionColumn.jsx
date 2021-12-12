@@ -4,18 +4,16 @@ import './descriptionColumn.css'
 //components
 import RowDescription from "../rowDescription/rowDescription";
 
-export default function DescriptionColumn(prop){
+export default function DescriptionColumn({character, type}){
 
     //Divido la data que se trajo en los prop
-    let {name, description} = prop.data;
+    let {name, description} = character;
     let dataPrimary, dataSecondary;
 
-    console.log("Comprobando los datos");
-    console.log(prop.data);
 
 
-    dataPrimary = (prop.type === "character")?changeDataCharacter(0,prop.data):changeDataVehicle(0,prop.data);
-    dataSecondary = (prop.type === "character")?changeDataCharacter(1,prop.data):changeDataVehicle(1,prop.data);
+    dataPrimary = (type === "character")?changeDataCharacter(0,character):changeDataVehicle(0,character);
+    dataSecondary = (type === "character")?changeDataCharacter(1,character):changeDataVehicle(1,character);
         
     
     console.log("Hola estoy comprobando los datos");
@@ -28,7 +26,7 @@ export default function DescriptionColumn(prop){
 
     const changeInfo = () => {
         
-        if(prop.type==="character"){
+        if(type==="character"){
             primaryColumn.current.classList.toggle("disabled");
             secondaryColumn.current.classList.toggle("disabled");
         }else{
@@ -45,7 +43,7 @@ export default function DescriptionColumn(prop){
             <h3 className="name-character">{name}</h3>
             <hr />
 
-                {(prop.type === "character") && 
+                {(type === "character") && 
                 
                     <div ref={primaryColumn} className="column-primary-description ">
                         <p>{description}</p>
@@ -55,7 +53,7 @@ export default function DescriptionColumn(prop){
                 
         
 
-            <div ref={secondaryColumn} className={`column-secondary-description ${(prop.type === "character")?"disabled":""}`}>
+            <div ref={secondaryColumn} className={`column-secondary-description ${(type === "character")?"disabled":""}`}>
 
                 <div className="description-physical-card-get">
 

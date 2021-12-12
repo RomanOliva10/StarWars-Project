@@ -2,16 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import homeworlds from './mocks/homeworlds';
 import './form.css';
+/* Pruebas */
+import axios from 'axios';
 
-const AddCharacter = () => {
+const AddCharacter = ({set, data}) => {
     
     const { register, handleSubmit, formState: { errors } } = useForm();
+    
     
     const onSubmit = char => {
         // Si estamos acá es porque completaron todos los campos
         // Una vez hecho el back habría que enviar {char} al back
         // Por el momento sólo mostramos los valores en un console.log
-        console.log(char);
+
+        char.url = `https://swapi.dev/api/people/${data.results.length + 1}/`;
+        
+        set(char);
+
+        /* console.log(char); */
     }
 
     return (
@@ -40,7 +48,61 @@ const AddCharacter = () => {
                     </select>
                     {errors.gender && <span className="error">This field is required</span>}
                 </div>
+
+                {/* Agregando campos que faltan */}
                 
+                <div className="form-group">
+                    <label htmlFor="heigth">Heigth: </label>
+                    <input 
+                        className={errors.heigth && "error"}
+                        type="text" 
+                        {...register("heigth", { required: true })} 
+                    />
+                    {errors.heigth && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="mass">Mass: </label>
+                    <input 
+                        className={errors.mass && "error"}
+                        type="text" 
+                        {...register("mass", { required: true })} 
+                    />
+                    {errors.mass && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="eye_color">Eye Color: </label>
+                    <input 
+                        className={errors.eye_color && "error"}
+                        type="text" 
+                        {...register("eye_color", { required: true })} 
+                    />
+                    {errors.eye_color && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="skin_color">Skin Color: </label>
+                    <input 
+                        className={errors.skin_color && "error"}
+                        type="text" 
+                        {...register("skin_color", { required: true })} 
+                    />
+                    {errors.skin_color && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="birth_year">Birth Year: </label>
+                    <input 
+                        className={errors.birth_year && "error"}
+                        type="text" 
+                        {...register("birth_year", { required: true })} 
+                    />
+                    {errors.birth_year && <span className="error">This field is required</span>}
+                </div>
+
+                {/* ------------------------------------------------------ */}
+
                 <div className="form-group">
                     <label htmlFor="homeworld">Homeworld</label>
                     <select 
@@ -54,7 +116,7 @@ const AddCharacter = () => {
                     {errors.homeworld && <span className="error">This field is required</span>}
                 </div>
 
-                <div>
+               {/*  <div>
                     <label htmlFor="films">Films</label>
                     <div className="check-group">
                         <input type="checkbox" {...register("films")} value="1" />
@@ -80,7 +142,7 @@ const AddCharacter = () => {
                         <input type="checkbox" {...register("films")} value="6" />
                         <span>Episode IX -'The Rise of Skywalker'</span>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="form-group">
                     <label htmlFor="species">Specie</label>
@@ -91,7 +153,7 @@ const AddCharacter = () => {
                     />
                     {errors.species && <span className="error">This field is required</span>}
                 </div>
-
+{/* 
                 <div className="form-group">
                     <label htmlFor="img">image</label>
                     <input 
@@ -100,16 +162,16 @@ const AddCharacter = () => {
                         {...register("img", { required: true })} 
                     />
                     {errors.img && <span className="error">This field is required</span>}
-                </div>
+                </div> */}
 
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="description">Description</label>
                     <textarea 
                         className={errors.description && "error"}
                         {...register("description", { required: true })}
                     ></textarea> 
                     {errors.description && <span className="error">This field is required</span>}
-                </div>
+                </div> */}
 
                 <div className="form-group">
                     <button type="submit">Add Character</button>

@@ -15,13 +15,28 @@ import DescriptionColumn from "./description/descriptionColumn/descriptionColumn
 
 
 export default function CharacterGet(prop){
+
+    console.log(prop.dataP);
     // Obtenemos la ubicacion para extraer el ID
     const location = useLocation();
     let id = location.pathname.split('/')[2];
     
-    let [character, setCharacter] = useState([]);
+    let [character, setCharacter] = useState({
+    });
+
     let [error404, setError404] = useState(false);
 
+    useEffect(() => {
+        
+        if(prop.dataP.results.length !== 0){
+            setCharacter(prop.dataP.results[id - 1]);
+        }
+        
+    },[id, prop.dataP]);
+    
+
+
+    /* 
     useEffect(() => {
         const URL = `https://swapi.dev/api/people/${id}`;
 
@@ -41,17 +56,16 @@ export default function CharacterGet(prop){
             console.log(error);
 
         });
-    }, [id]);
+    }, [id]); */
     
-    console.log(character);
     return(
         <Fragment>
-        {
-            error404 ?
+        
+            {/*  error404 ?
             <Error msg="not found" code="404" /> :
             character.length === 0 ?
             <Spinner msg="loading" /> :
-            
+              */}
             <div className="main-get">
 
                 <div className="line-card">
@@ -64,7 +78,7 @@ export default function CharacterGet(prop){
                     </div>
 
 
-                        <DescriptionColumn data={character.data} type={prop.type}/>
+                        <DescriptionColumn character={character} type={prop.type}/>
 
 
                     </div>
@@ -73,7 +87,7 @@ export default function CharacterGet(prop){
                 <FilmsCarousel data={dataFilm}/>
 
         </div>
-        }
+        
         </Fragment>
     );
 }

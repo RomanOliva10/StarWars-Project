@@ -12,10 +12,16 @@ import VehicleGet from './presentational/getOne/getVehicle';
 import AddCharacter from '../forms/AddCharacter';
 import AddVehicle from '../forms/AddVehicle';
 
+
 export default function Home() {
 
     const [dataV,setDataV] = useState({ results: [] });
     const [dataP,setDataP] = useState({ results: [] });
+
+    const guardarCharacter = (data) => {
+        setDataP({...dataP,results:[...dataP.results,{...data,id:dataP.length + 1}]});
+        console.log(dataP);
+    };
 
     useEffect(() => {
         const baseURLV = "https://swapi.dev/api/vehicles/";
@@ -30,8 +36,12 @@ export default function Home() {
             setDataP(chars.data);
         }))
         .catch(error => console.log(error));
+ 
     }, []);
 
+   
+    
+    
 
     return (
         <div className="container-home">
@@ -44,10 +54,10 @@ export default function Home() {
             <Routes>
                 <Route index path="/" element={<GetAll dataP={dataP} dataV={dataV} />} />
                 <Route path="/Characters" element={<GetAllCharacters dataP={dataP} />} />
-                <Route path="/Characters/:id" element={<CharacterGet type={"character"}/>} />
+                <Route path="/Characters/:id" element={<CharacterGet type={"character"} dataP={dataP} />} />
                 <Route path="/Vehicles" element={<GetAllVehicles dataV={dataV} />} />
                 <Route path="/Vehicles/:id" element={<VehicleGet type={"vehicle"}/>} />
-                <Route path="/AddCharacters" element={<AddCharacter />}/>
+                <Route path="/AddCharacters" element={<AddCharacter set={guardarCharacter} data={dataP}/>}/>
                 <Route path="/AddVehicle" element={<AddVehicle />}/>
             </Routes>
             </Fragment>

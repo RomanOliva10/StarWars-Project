@@ -4,9 +4,11 @@ import "./getAll.css";
 
 
 function Card({datos,img, type}) {
+
     // Obtener el ID para el ruteo
     let id = datos.url.split('/');
     id = id[id.length-2];
+    
     // Obtener la ubicacion actual
     let location = useLocation();
 
