@@ -11,6 +11,8 @@ import CharacterGet from './presentational/getOne/getCharacter';
 import VehicleGet from './presentational/getOne/getVehicle';
 import AddCharacter from '../forms/AddCharacter';
 import AddVehicle from '../forms/AddVehicle';
+import EditChars from '../forms/EditChars';
+import EditVehic from '../forms/EditVehic';
 
 
 export default function Home() {
@@ -22,6 +24,26 @@ export default function Home() {
         setDataP({...dataP,results:[...dataP.results,{...data,id:dataP.length + 1}]});
         console.log(dataP);
     };
+
+    const guardarVehicle = (data) => {
+        setDataV({...dataV,results:[...dataV.results,{...data,id:dataV.length + 1}]});
+        console.log(dataV);
+    };
+
+    const editarChars = (data, id) => {
+        let temp = dataP;
+        temp.results[id] = data;
+        console.log(data);
+        console.log(temp);
+        setDataP(temp); 
+    }
+
+    const editarVehic = (data, id) => {
+        let temp = dataV;
+        temp.results[id] = data;
+        setDataV(temp); 
+    }
+
 
     useEffect(() => {
         const baseURLV = "https://swapi.dev/api/vehicles/";
@@ -39,10 +61,6 @@ export default function Home() {
  
     }, []);
 
-   
-    
-    
-
     return (
         <div className="container-home">
             <div className="options">
@@ -56,9 +74,12 @@ export default function Home() {
                 <Route path="/Characters" element={<GetAllCharacters dataP={dataP} />} />
                 <Route path="/Characters/:id" element={<CharacterGet type={"character"} dataP={dataP} />} />
                 <Route path="/Vehicles" element={<GetAllVehicles dataV={dataV} />} />
-                <Route path="/Vehicles/:id" element={<VehicleGet type={"vehicle"}/>} />
+                <Route path="/Vehicles/:id" element={<VehicleGet type={"vehicle"} dataP={dataV}/>} />
                 <Route path="/AddCharacters" element={<AddCharacter set={guardarCharacter} data={dataP}/>}/>
-                <Route path="/AddVehicle" element={<AddVehicle />}/>
+                <Route path="/AddVehicle" element={<AddVehicle set={guardarVehicle} data={dataV}/>}/>
+                <Route path="/EditVehic/:id" element={<EditVehic edit={editarVehic} data={dataV}/>}/>
+                <Route path="/EditChars/:id" element={<EditChars edit={editarChars} data={dataP}/>}/>
+
             </Routes>
             </Fragment>
         </div>

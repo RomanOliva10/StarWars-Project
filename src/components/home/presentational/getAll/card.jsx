@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import "./getAll.css";
 
 
-function Card({datos,img, type}) {
+function Card({pos, datos, img, type}) {
 
     // Obtener el ID para el ruteo
     let id = datos.url.split('/');
@@ -14,7 +14,7 @@ function Card({datos,img, type}) {
 
     return (
         <div className="card">
-            <Link to={`/${type}/${id}`}>
+            <Link to={`/${type}/${pos}`}>
                 <div className="container-img"><img src={img} alt="" /></div>
                 <div className="container-text">
                     <h3>{datos.name}</h3>

@@ -4,24 +4,64 @@ import homeworlds from './mocks/homeworlds';
 import './form.css';
 /* Pruebas */
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
-const AddCharacter = ({set, data}) => {
-    
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+export default function EditChars({edit, data}) {
     
     
+    const location = useLocation();
+    let id = location.pathname.split('/')[2];
+    
+    let [oldData,setNewData] = useState({});
+    
+    const { register, handleSubmit ,reset, setValue, formState: { errors } } = useForm({
+        defaultValues: {
+            name:"",
+            height:"",
+            gender:"",
+            mass:"",
+            eye_color:"",
+            skin_color:"",
+            birth_year:"",
+            homeworld:"",
+            species:""
+        }
+    });
+    
+    useEffect(() => {
+        if(data.results.length !== 0){
+
+            setNewData(data.results[id-1]);
+
+            // setValue("name",oldData.name);
+            for (const key in oldData) {
+                //  alert(key);
+                // alert(oldData[key]);
+                if(key === "species"){
+                    
+                    setValue(key,oldData[key][0]);
+                }
+                else{
+                    setValue(key,oldData[key]);
+                }
+            }
+        }
+    },[data, oldData]); 
+    
+
     const onSubmit = char => {
         // Si estamos acá es porque completaron todos los campos
         // Una vez hecho el back habría que enviar {char} al back
         // Por el momento sólo mostramos los valores en un console.log
 
-        char.url = `https://swapi.dev/api/people/${data.results.length + 1}/`;
+        char.url = `https://swapi.dev/api/people/${id}/`;
         
-        set(char);
+        edit(char,id-1);
+        // alert(char.url);
 
         reset({});
 
-        alert("Character created!");
+        alert("Character edited!");
 
         /* console.log(char); */
     }
@@ -32,7 +72,8 @@ const AddCharacter = ({set, data}) => {
             <form method="post" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="name">Name: </label>
-                    <input 
+                    <input
+
                         className={errors.name && "error"}
                         type="text" 
                         {...register("name", { required: true })} 
@@ -43,11 +84,12 @@ const AddCharacter = ({set, data}) => {
                 <div className="form-group">
                     <label htmlFor="gender">Gender</label>
                     <select 
+
                         className={errors.gender && "error"}
                         {...register("gender", { required: true })}
                     >
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                         <option value="n/a">n/a</option>
                     </select>
                     {errors.gender && <span className="error">This field is required</span>}
@@ -56,18 +98,20 @@ const AddCharacter = ({set, data}) => {
                 {/* Agregando campos que faltan */}
                 
                 <div className="form-group">
-                    <label htmlFor="heigth">Heigth: </label>
+                    <label htmlFor="height">Height: </label>
                     <input 
-                        className={errors.heigth && "error"}
+                        
+                        className={errors.height && "error"}
                         type="text" 
-                        {...register("heigth", { required: true })} 
+                        {...register("height", { required: true })} 
                     />
-                    {errors.heigth && <span className="error">This field is required</span>}
+                    {errors.height && <span className="error">This field is required</span>}
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="mass">Mass: </label>
                     <input 
+                       
                         className={errors.mass && "error"}
                         type="text" 
                         {...register("mass", { required: true })} 
@@ -78,6 +122,7 @@ const AddCharacter = ({set, data}) => {
                 <div className="form-group">
                     <label htmlFor="eye_color">Eye Color: </label>
                     <input 
+                        
                         className={errors.eye_color && "error"}
                         type="text" 
                         {...register("eye_color", { required: true })} 
@@ -88,6 +133,7 @@ const AddCharacter = ({set, data}) => {
                 <div className="form-group">
                     <label htmlFor="skin_color">Skin Color: </label>
                     <input 
+                        
                         className={errors.skin_color && "error"}
                         type="text" 
                         {...register("skin_color", { required: true })} 
@@ -98,6 +144,7 @@ const AddCharacter = ({set, data}) => {
                 <div className="form-group">
                     <label htmlFor="birth_year">Birth Year: </label>
                     <input 
+                        
                         className={errors.birth_year && "error"}
                         type="text" 
                         {...register("birth_year", { required: true })} 
@@ -110,6 +157,7 @@ const AddCharacter = ({set, data}) => {
                 <div className="form-group">
                     <label htmlFor="homeworld">Homeworld</label>
                     <select 
+                        
                         className={errors.homeworld && "error"}
                         {...register("homeworld", { required: true })}
                     >
@@ -151,6 +199,7 @@ const AddCharacter = ({set, data}) => {
                 <div className="form-group">
                     <label htmlFor="species">Specie</label>
                     <input 
+                        
                         className={errors.species && "error"}
                         type="text" 
                         {...register("species", { required: true })} 
@@ -178,11 +227,10 @@ const AddCharacter = ({set, data}) => {
                 </div> */}
 
                 <div className="form-group">
-                    <button type="submit">Add Character</button>
+                    <button type="submit">Editar</button>
                 </div>
             </form>
         </div>
     );
 }
  
-export default AddCharacter;

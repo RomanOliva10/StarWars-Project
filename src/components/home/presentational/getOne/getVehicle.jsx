@@ -12,45 +12,54 @@ import dataFilm from "../../../mocks/films";
 //Components
 import FilmsCarousel from "./filmsCarousel/filmCarousel";
 import DescriptionColumn from "./description/descriptionColumn/descriptionColumn";
+import { Link } from "react-router-dom";
 
 
-export default function CharactersGet(){
+export default function VehiclesGet(prop){
    // Obtenemos la ubicacion para extraer el ID
     const location = useLocation();
     let id = location.pathname.split('/')[2];
     
-    let [vehicle, setVehicle] = useState([]);
+    let [vehicle, setVehicle] = useState({});
     let [error404, setError404] = useState(false);
 
     useEffect(() => {
-    const URL = `https://swapi.dev/api/vehicles/${id}`;
+        
+        if(prop.dataP.results.length !== 0){
+            setVehicle(prop.dataP.results[id - 1]);
+        }
+        
+    },[id, prop.dataP]);
 
-        axios
-        .get(URL)
-        .then(data => {  
-            console.log(data);
-            if (data.status === 200) {
-                setVehicle(data);
-                setError404(false);
-            } else {
-                setError404(true);
-            }
-        })
-        .catch(error => {
-            setError404(true);
-            console.log(error);
+    // useEffect(() => {
+    // const URL = `https://swapi.dev/api/vehicles/${id}`;
 
-        });
-    }, [id]);
+    //     axios
+    //     .get(URL)
+    //     .then(data => {  
+    //         console.log(data);
+    //         if (data.status === 200) {
+    //             setVehicle(data);
+    //             setError404(false);
+    //         } else {
+    //             setError404(true);
+    //         }
+    //     })
+    //     .catch(error => {
+    //         setError404(true);
+    //         console.log(error);
+
+    //     });
+    // }, [id]);
 
     console.log(vehicle);
     return(
         <Fragment>
-        {
-            error404 ?
-            <Error msg="not found" code="404" /> :
-            vehicle.length === 0 ?
-            <Spinner msg="loading" /> :
+{/*         
+            // error404 ?
+            // <Error msg="not found" code="404" /> :
+            // vehicle.length === 0 ?
+            // <Spinner msg="loading" /> : */}
             
             <div className="main-get">
 
@@ -64,16 +73,19 @@ export default function CharactersGet(){
                     </div>
 
 
-                        <DescriptionColumn data={vehicle.data}/>
+                    <DescriptionColumn character={vehicle} type={prop.type}/>
 
 
                     </div>
+
+                    <Link to={`/EditVehic/${id}`}>Editar</Link>
+
                 </div>
 
                 <FilmsCarousel data={dataFilm}/>
 
         </div>
-        }
+        
         </Fragment>
     );
 }

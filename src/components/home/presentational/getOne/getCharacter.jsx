@@ -12,6 +12,7 @@ import dataFilm from "../../../mocks/films";
 //Components
 import FilmsCarousel from "./filmsCarousel/filmCarousel";
 import DescriptionColumn from "./description/descriptionColumn/descriptionColumn";
+import { Link } from "react-router-dom";
 
 
 export default function CharacterGet(prop){
@@ -21,8 +22,7 @@ export default function CharacterGet(prop){
     const location = useLocation();
     let id = location.pathname.split('/')[2];
     
-    let [character, setCharacter] = useState({
-    });
+    let [character, setCharacter] = useState({});
 
     let [error404, setError404] = useState(false);
 
@@ -82,6 +82,8 @@ export default function CharacterGet(prop){
 
 
                     </div>
+
+                    <Link to={`/EditChars/${id}`}>Editar</Link>
                 </div>
 
                 <FilmsCarousel data={dataFilm}/>

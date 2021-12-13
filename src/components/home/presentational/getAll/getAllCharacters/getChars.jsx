@@ -14,7 +14,7 @@ function GetAllCharacters({dataP}) {
             {
                 dataP.results.length === 0 ? 
                 <Spinner msg="loading characters" />:
-                dataP.results.map((ele,idx)=> <Card key={idx} type="Characters" datos={ele} img={imgCharacters[idx]}/>)
+                dataP.results.map((ele,idx)=> <Card key={idx} type="Characters" datos={ele} img={imgCharacters[idx]} pos={idx+1}/>)
             }
             <Link className="add-card" to='/AddCharacters'>
                     <div className="add-container-img">

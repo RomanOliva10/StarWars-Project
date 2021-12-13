@@ -3,16 +3,26 @@ import { useForm } from 'react-hook-form';
 import './form.css';
 import affiliations from '../forms/mocks/affiliations';
 
-const AddVehicle = () => {
+const AddVehicle = ({set, data}) => {
     
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
     const vehicle = {};
 
     const onSubmit = vehicle => {
         // Si estamos acá es porque completaron todos los campos
         // Una vez hecho el back habría que enviar {vehicle} al back
         // Por el momento sólo mostramos los valores en un console.log
+
+        
+
+        vehicle.url = `https://swapi.dev/api/vehicles/${data.results.length + 1}/`;
+        
+        set(vehicle);
+
+        reset({});
+
+        alert("Vehiculo creado!");
         console.log(vehicle);
     }
 
@@ -30,8 +40,78 @@ const AddVehicle = () => {
                     />
                     {errors.name && <span className="error">This field is required</span>}
                 </div>
-             
+
                 <div className="form-group">
+                    <label htmlFor="model">Model: </label>
+                    <input 
+                        className={errors.model && "error"}
+                        type="text" 
+                        {...register("model", { required: true })} 
+                    />
+                    {errors.model && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="cost_in_credits">Cost: </label>
+                    <input 
+                        className={errors.cost_in_credits && "error"}
+                        type="text" 
+                        {...register("cost_in_credits", { required: true })} 
+                    />
+                    {errors.cost_in_credits && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="length">Length: </label>
+                    <input 
+                        className={errors.length && "error"}
+                        type="text" 
+                        {...register("length", { required: true })} 
+                    />
+                    {errors.length && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="cargo_capacity">Capacity: </label>
+                    <input 
+                        className={errors.cargo_capacity && "error"}
+                        type="text" 
+                        {...register("cargo_capacity", { required: true })} 
+                    />
+                    {errors.cargo_capacity && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="max_atmosphering_speed">Max Speed: </label>
+                    <input 
+                        className={errors.max_atmosphering_speed && "error"}
+                        type="text" 
+                        {...register("max_atmosphering_speed", { required: true })} 
+                    />
+                    {errors.max_atmosphering_speed && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="manufacturer">Manufactured: </label>
+                    <input 
+                        className={errors.manufacturer && "error"}
+                        type="text" 
+                        {...register("manufacturer", { required: true })} 
+                    />
+                    {errors.manufacturer && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="created">Created: </label>
+                    <input 
+                        className={errors.created && "error"}
+                        type="text" 
+                        {...register("created", { required: true })} 
+                    />
+                    {errors.created && <span className="error">This field is required</span>}
+                </div>
+             
+                {/* <div className="form-group">
                     <label htmlFor="affiliations">Affiliations</label>
                     <select 
                         multiple
@@ -43,9 +123,10 @@ const AddVehicle = () => {
                         ))}
                     </select>
                     {errors.homeworld && <span className="error">This field is required</span>}
-                </div>
+                </div> */}
+                
 
-                <div>
+                {/* <div>
                     <label htmlFor="films">Films</label>
                     <div className="check-group">
                         <input type="checkbox" {...register("films")} value="1" />
@@ -71,9 +152,9 @@ const AddVehicle = () => {
                         <input type="checkbox" {...register("films")} value="6" />
                         <span>Episode IX -'The Rise of Skywalker'</span>
                     </div>
-                </div>
+                </div> */}
 
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="img">Image</label>
                     <input 
                         className={errors.img && "error"}
@@ -81,16 +162,16 @@ const AddVehicle = () => {
                         {...register("img", { required: true })} 
                     />
                     {errors.img && <span className="error">This field is required</span>}
-                </div>
+                </div> */}
 
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="description">Description</label>
                     <textarea 
                         className={errors.description && "error"}
                         {...register("description", { required: true })}
                     ></textarea> 
                     {errors.description && <span className="error">This field is required</span>}
-                </div>
+                </div> */}
 
                 <div className="form-group">
                     <button type="submit">Add Vehicle</button>

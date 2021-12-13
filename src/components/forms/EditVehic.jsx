@@ -4,31 +4,67 @@ import homeworlds from './mocks/homeworlds';
 import './form.css';
 /* Pruebas */
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
-const AddCharacter = ({set, data}) => {
-    
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+export default function EditVehic({edit, data}) {
     
     
-    const onSubmit = char => {
+    const location = useLocation();
+    let id = location.pathname.split('/')[2];
+    
+    let [oldData,setNewData] = useState({});
+    
+    const { register, handleSubmit ,reset, setValue, formState: { errors } } = useForm({
+        defaultValues: {
+            name:"",
+            model:"",
+            cost_in_credits:"",
+            length:"",
+            cargo_capacity:"",
+            max_atmosphering_speed:"",
+            manufactured:"",
+            created:""
+        }
+    });
+    
+    useEffect(() => {
+        if(data.results.length !== 0){
+
+            setNewData(data.results[id-1]);
+
+            // setValue("name",oldData.name);
+            for (const key in oldData) {
+                //  alert(key);
+                // alert(oldData[key]);
+                
+                
+                setValue(key,oldData[key]);
+                
+            }
+        }
+    },[data, oldData]); 
+    
+
+    const onSubmit = vehicle => {
         // Si estamos acá es porque completaron todos los campos
         // Una vez hecho el back habría que enviar {char} al back
         // Por el momento sólo mostramos los valores en un console.log
 
-        char.url = `https://swapi.dev/api/people/${data.results.length + 1}/`;
+        vehicle.url = `https://swapi.dev/api/vehicles/${id}/`;
         
-        set(char);
+        edit(vehicle,id-1);
+        // alert(char.url);
 
         reset({});
 
-        alert("Character created!");
+        alert("Vehicle edited!");
 
         /* console.log(char); */
     }
 
     return (
         <div className="form-area">
-            <h3>Add Character</h3>
+            <h3>Edit Vehicle</h3>
             <form method="post" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="name">Name: </label>
@@ -41,86 +77,91 @@ const AddCharacter = ({set, data}) => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="gender">Gender</label>
+                    <label htmlFor="model">Model: </label>
+                    <input 
+                        className={errors.model && "error"}
+                        type="text" 
+                        {...register("model", { required: true })} 
+                    />
+                    {errors.model && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="cost_in_credits">Cost: </label>
+                    <input 
+                        className={errors.cost_in_credits && "error"}
+                        type="text" 
+                        {...register("cost_in_credits", { required: true })} 
+                    />
+                    {errors.cost_in_credits && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="length">Length: </label>
+                    <input 
+                        className={errors.length && "error"}
+                        type="text" 
+                        {...register("length", { required: true })} 
+                    />
+                    {errors.length && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="cargo_capacity">Capacity: </label>
+                    <input 
+                        className={errors.cargo_capacity && "error"}
+                        type="text" 
+                        {...register("cargo_capacity", { required: true })} 
+                    />
+                    {errors.cargo_capacity && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="max_atmosphering_speed">Max Speed: </label>
+                    <input 
+                        className={errors.max_atmosphering_speed && "error"}
+                        type="text" 
+                        {...register("max_atmosphering_speed", { required: true })} 
+                    />
+                    {errors.max_atmosphering_speed && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="manufacturer">Manufactured: </label>
+                    <input 
+                        className={errors.manufacturer && "error"}
+                        type="text" 
+                        {...register("manufacturer", { required: true })} 
+                    />
+                    {errors.manufacturer && <span className="error">This field is required</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="created">Created: </label>
+                    <input 
+                        className={errors.created && "error"}
+                        type="text" 
+                        {...register("created", { required: true })} 
+                    />
+                    {errors.created && <span className="error">This field is required</span>}
+                </div>
+             
+                {/* <div className="form-group">
+                    <label htmlFor="affiliations">Affiliations</label>
                     <select 
-                        className={errors.gender && "error"}
-                        {...register("gender", { required: true })}
+                        multiple
+                        className={errors.affiliations && "error"}
+                        {...register("affiliations", { required: true })}
                     >
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="n/a">n/a</option>
-                    </select>
-                    {errors.gender && <span className="error">This field is required</span>}
-                </div>
-
-                {/* Agregando campos que faltan */}
-                
-                <div className="form-group">
-                    <label htmlFor="heigth">Heigth: </label>
-                    <input 
-                        className={errors.heigth && "error"}
-                        type="text" 
-                        {...register("heigth", { required: true })} 
-                    />
-                    {errors.heigth && <span className="error">This field is required</span>}
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="mass">Mass: </label>
-                    <input 
-                        className={errors.mass && "error"}
-                        type="text" 
-                        {...register("mass", { required: true })} 
-                    />
-                    {errors.mass && <span className="error">This field is required</span>}
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="eye_color">Eye Color: </label>
-                    <input 
-                        className={errors.eye_color && "error"}
-                        type="text" 
-                        {...register("eye_color", { required: true })} 
-                    />
-                    {errors.eye_color && <span className="error">This field is required</span>}
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="skin_color">Skin Color: </label>
-                    <input 
-                        className={errors.skin_color && "error"}
-                        type="text" 
-                        {...register("skin_color", { required: true })} 
-                    />
-                    {errors.skin_color && <span className="error">This field is required</span>}
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="birth_year">Birth Year: </label>
-                    <input 
-                        className={errors.birth_year && "error"}
-                        type="text" 
-                        {...register("birth_year", { required: true })} 
-                    />
-                    {errors.birth_year && <span className="error">This field is required</span>}
-                </div>
-
-                {/* ------------------------------------------------------ */}
-
-                <div className="form-group">
-                    <label htmlFor="homeworld">Homeworld</label>
-                    <select 
-                        className={errors.homeworld && "error"}
-                        {...register("homeworld", { required: true })}
-                    >
-                        {homeworlds.map(e => (
-                            <option key={e.id} value={e.id}>{e.name}</option>
+                        {affiliations.map((e, i) => (
+                            <option key={i} value={e}>{e}</option>
                         ))}
                     </select>
                     {errors.homeworld && <span className="error">This field is required</span>}
-                </div>
+                </div> */}
+                
 
-               {/*  <div>
+                {/* <div>
                     <label htmlFor="films">Films</label>
                     <div className="check-group">
                         <input type="checkbox" {...register("films")} value="1" />
@@ -148,18 +189,8 @@ const AddCharacter = ({set, data}) => {
                     </div>
                 </div> */}
 
-                <div className="form-group">
-                    <label htmlFor="species">Specie</label>
-                    <input 
-                        className={errors.species && "error"}
-                        type="text" 
-                        {...register("species", { required: true })} 
-                    />
-                    {errors.species && <span className="error">This field is required</span>}
-                </div>
-{/* 
-                <div className="form-group">
-                    <label htmlFor="img">image</label>
+                {/* <div className="form-group">
+                    <label htmlFor="img">Image</label>
                     <input 
                         className={errors.img && "error"}
                         type="file" 
@@ -178,11 +209,10 @@ const AddCharacter = ({set, data}) => {
                 </div> */}
 
                 <div className="form-group">
-                    <button type="submit">Add Character</button>
+                    <button type="submit">Edit Vehicle</button>
                 </div>
             </form>
         </div>
     );
 }
  
-export default AddCharacter;
