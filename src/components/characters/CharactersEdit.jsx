@@ -45,8 +45,8 @@ export default function CharactersEdit() {
     let id = location.pathname.split('/')[3];
 
     useEffect(() => {    
-        const URL = `http://localhost:4000/api/characters/${id}`;
-        // const URL = `https://swapi-tukiti.herokuapp.com/api/characters/${id}`;
+        // const URL = `http://localhost:4000/api/characters/${id}`;
+        const URL = `https://swapi-tukiti.herokuapp.com/api/characters/${id}`;
 
         axios.get(URL)
         .then(res => {  
@@ -72,8 +72,8 @@ export default function CharactersEdit() {
     }, [character, setValue]);
     
     const onSubmit = char => {
-        const URL = `http://localhost:4000/api/characters/edit/${id}`;
-        // const URL = `https://swapi-tukiti.herokuapp.com/api/characters/edit/${id}`;
+        // const URL = `http://localhost:4000/api/characters/edit/${id}`;
+        const URL = `https://swapi-tukiti.herokuapp.com/api/characters/edit/${id}`;
 
         axios.put(URL, char)
         .then(res => {  
@@ -197,7 +197,7 @@ export default function CharactersEdit() {
                                 {errors.gender && <span className="error">This field is required</span>}
                             </div>
                             {/* Image */}
-                            {/* <div className="form-group">
+                            <div className="form-group">
                                 <label htmlFor="image">Image: </label>
                                 <input 
                                     accept="image/gif, image/png, image/jpeg"
@@ -206,7 +206,7 @@ export default function CharactersEdit() {
                                     {...register("image", { required: true })} 
                                 />
                                 {errors.image && <span className="error">This field is required</span>}
-                            </div> */}
+                            </div>
                             
                             <div className="form-group">
                                 <button type="submit">editar</button>

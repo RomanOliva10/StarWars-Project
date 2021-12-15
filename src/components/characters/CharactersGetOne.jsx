@@ -25,8 +25,8 @@ export default function CharactersGetOne() {
     let id = location.pathname.split('/')[2];
 
     useEffect(() => {
-        const URL = `http://localhost:4000/api/characters/${id}`;
-        // const URL = `https://swapi-tukiti.herokuapp.com/api/characters/${id}`;
+        // const URL = `http://localhost:4000/api/characters/${id}`;
+        const URL = `https://swapi-tukiti.herokuapp.com/api/characters/${id}`;
 
         axios.get(URL)
         .then(res => {  

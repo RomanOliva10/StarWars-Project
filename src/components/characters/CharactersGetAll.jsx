@@ -19,8 +19,8 @@ export default function CharactersGetAll({ data }) {
     let [currentData, setCurrentData] = useState([]);
 
     useEffect(() => {
-        // const URL = `https://swapi-tukiti.herokuapp.com/api/characters/?page=${page}`;
-        const URL = `http://localhost:4000/api/characters/?page=${page}`;
+        const URL = `https://swapi-tukiti.herokuapp.com/api/characters/?page=${page}`;
+        // const URL = `http://localhost:4000/api/characters/?page=${page}`;
 
         if (page === 1) {  
             setCurrentData(data.results);
