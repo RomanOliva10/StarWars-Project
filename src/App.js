@@ -1,17 +1,61 @@
-// import logo from './logo.svg';
+
+import React, { useState, useEffect } from 'react';
+import { Route, Routes } from "react-router-dom";
+import axios from "axios";
+
+// import styles
 import "./App.css"
-import { Fragment } from 'react';
-import Home from './components/home/home';
-import Nav from './components/nav/nav';
-// import Prueba from './components/prueba/prueba';
+
+// import components
+import Home from "./components/home/Home";
+import CharactersGetAll from './components/characters/CharactersGetAll';
+import CharactersGetOne from './components/characters/CharactersGetOne';
+import CharactersCreate from './components/characters/CharactersCreate';
+import CharactersEdit from './components/characters/CharactersEdit';
+
+import VehiclesGetAll from './components/vehicles/VehiclesGetAll';
+import VehiclesGetOne from './components/vehicles/VehiclesGetOne';
+import VehiclesCreate from './components/vehicles/VehiclesCreate';
+import VehiclesEdit from './components/vehicles/VehiclesEdit';
+import SignIn from './components/users/signIn/signIn';
+import Register from './components/users/register/register';
 
 function App() {
+  const [dataV, setDataV] = useState({ results: [] });
+  const [dataP, setDataP] = useState({ results: [] });
+
+  useEffect(() => {
+      const baseURL = "https://swapi-tukiti.herokuapp.com/api";
+      // const baseURL = "http://localhost:4000/api";
+
+      axios.all([
+          axios.get(`${baseURL}/vehicles/`),
+          axios.get(`${baseURL}/characters/`)
+      ])
+      .then(axios.spread((vehicles, characters) => {  
+          setDataV(vehicles.data);
+          setDataP(characters.data);
+      }))
+      .catch(error => console.log(error));
+  }, []);
+
   return (
-    <Fragment>
-      <Nav/>
-      <Home/>
-      {/* <Prueba/> */}
-    </Fragment>
+    <Routes>
+        <Route index path="/" element={<Home data={[dataV, dataP]}/>} />
+
+        <Route index path="/login" element={<SignIn/>} />
+        <Route index path="/register" element={<Register/>} />
+
+        <Route path="/characters" element={<CharactersGetAll data={dataP} />} />
+        <Route path="/characters/:id" element={<CharactersGetOne />} />
+        <Route path="/characters/create" element={<CharactersCreate />}/>
+        <Route path="/characters/edit/:id" element={<CharactersEdit />}/>
+
+        <Route path="/vehicles" element={<VehiclesGetAll data={dataV} />} />
+        <Route path="/vehicles/:id" element={<VehiclesGetOne />} />
+        <Route path="/vehicles/create" element={<VehiclesCreate />}/>
+        <Route path="/vehicles/edit/:id" element={<VehiclesEdit />}/>
+    </Routes>
   );
 }
 

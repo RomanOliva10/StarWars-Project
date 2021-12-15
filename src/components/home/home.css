@@ -1,21 +1,75 @@
-.container-home{
-    padding-top: 150px;
+.container-all{
+    margin: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-repeat: no-repeat;
+    width: 80%;
+    padding-top: 150px;
+    gap: 14px;
 }
 
-.container-home .options{
-    background-color: rgba(4,11,23,0.7);
+.buttons{
+    padding-right: 10px;
     display: flex;
+    justify-content: end;
+}
+
+.buttons a{
+    border: solid #9e4f60;
+    cursor: pointer;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    background: none;
+}
+
+.buttons a:hover{
+    color:#9e4f60;
+    background: black;
+    border: solid #2a2a2a;
+}
+
+.container-cards{
+    display: flex;
+}
+
+.container-cards .options{
+    flex-direction: column;
+    display: flex;
+    grid-gap: 50px;
     gap: 50px;
     padding: 0px 15px;
 }
 
-.container-home .options a{
+.container-cards .options a{
+    border: solid #9e4f60;
     text-decoration: none;
-    color: yellow;
+    color: white;
+    padding: 7px 11px;
+    border-radius: 12px;
+}
+
+.container-cards .options a:hover{
+    color:#9e4f60;
+    background: black;
+    border: solid #2a2a2a;
+}
+
+.wrapper{
+    z-index: 1;
+    left: 0;
+    position: fixed;
+    width: 10%;
+    height: 100vh;
+    background-image: url(https://static-mh.content.disney.io/starwars/assets/background/bg_starsL-fd4661a3ccea.jpg);}
+
+.wrapper-two{
+    z-index: 1;
+    right: 0;
+    position: fixed;
+    width: 10%;
+    height: 100vh;
+    background-image: url(https://static-mh.content.disney.io/starwars/assets/background/bg_starsL-fd4661a3ccea.jpg);
 }
 
 @media screen and (max-width: 1024px) {
@@ -24,11 +78,11 @@
 
 
 @media screen and (max-width: 550px) {
-    .container-home .options {
+    .container-cards .options {
         text-align: center;
     }
 
-    .container-home .options a{
+    .container-cards .options a{
         font-size: 0.7rem;
     }
 }
