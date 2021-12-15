@@ -25,8 +25,8 @@ export default function VehiclesGetOne() {
     let id = location.pathname.split('/')[2];
 
     useEffect(() => {
-        const URL = `http://localhost:4000/api/vehicles/${id}`;
-        // const URL = `https://swapi-tukiti.herokuapp.com/api/vehicles/${id}`;
+        // const URL = `http://localhost:4000/api/vehicles/${id}`;
+        const URL = `https://swapi-tukiti.herokuapp.com/api/vehicles/${id}`;
 
         axios.get(URL)
         .then(res => {  
@@ -58,7 +58,7 @@ export default function VehiclesGetOne() {
                         <div className="line-card">
                             <div className="container-card-get" >
                                 <div className="container-img-description">
-                                    <img className="img-main-description" src="" alt="" /> 
+                                    <img className="img-main-description" src={`https://swapi-tukiti.herokuapp.com/vehicles/${vehicle.image}`} alt={vehicle.name} /> 
                                 </div>
                                 <DescriptionColumn character={vehicle} type="vehicle" />
                         </div>

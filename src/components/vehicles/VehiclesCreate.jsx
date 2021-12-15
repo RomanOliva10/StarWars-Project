@@ -15,10 +15,19 @@ export default function VehiclesCreate() {
     const { register, handleSubmit , formState: { errors } } = useForm();
     
     const onSubmit = vehicle => {
-        const URL = `http://localhost:4000/api/vehicles/create`;
-        // const URL = `https://swapi-tukiti.herokuapp.com/api/vehicles/create`;
+        // const URL = `http://localhost:4000/api/vehicles/create`;
+        const URL = `https://swapi-tukiti.herokuapp.com/api/vehicles/create`;
 
-        axios.post(URL, vehicle)
+        let formData = new FormData();
+        
+        for (const key in vehicle) {
+            formData.set(key, vehicle[key]);
+        }
+        formData.append('imgFile', vehicle.image[0]);
+
+        console.log(formData.get('imgFile'));
+      
+        axios.post(URL, formData)
         .then(res => {  
             console.log(vehicle);
             alert("Vehicle created!");
@@ -154,7 +163,7 @@ export default function VehiclesCreate() {
                             {errors.vehicle_class && <span className="error">This field is required</span>}
                         </div>
                         {/* Image */}
-                        {/* <div className="form-group">
+                        <div className="form-group">
                             <label htmlFor="image">Image: </label>
                             <input 
                                 accept="image/gif, image/png, image/jpeg"
@@ -164,7 +173,7 @@ export default function VehiclesCreate() {
                                 {...register("image", { required: true })} 
                             />
                             {errors.image && <span className="error">This field is required</span>}
-                        </div> */}
+                        </div>
 
                         <div className="form-group">
                             <button type="submit">crear</button>

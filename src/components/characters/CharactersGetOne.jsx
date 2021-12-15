@@ -58,7 +58,7 @@ export default function CharactersGetOne() {
                         <div className="line-card">
                             <div className="container-card-get" >
                                 <div className="container-img-description">
-                                    <img className="img-main-description" src="" alt="" /> 
+                                    <img className="img-main-description" src={`https://swapi-tukiti.herokuapp.com/characters/${vehicle.image}`} alt={character.name} /> 
                                 </div>
                                 <DescriptionColumn character={character} type="character" />
                         </div>

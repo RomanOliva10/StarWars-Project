@@ -74,8 +74,17 @@ export default function CharactersEdit() {
     const onSubmit = char => {
         // const URL = `http://localhost:4000/api/characters/edit/${id}`;
         const URL = `https://swapi-tukiti.herokuapp.com/api/characters/edit/${id}`;
+        
+        let formData = new FormData();
+        
+        for (const key in char) {
+            formData.set(key, char[key]);
+        }
+        formData.append('imgFile', char.image[0]);
 
-        axios.put(URL, char)
+        console.log(formData.get('imgFile'));
+
+        axios.put(URL, formData)
         .then(res => {  
             alert("Character edited!");
             navigate('/characters');
