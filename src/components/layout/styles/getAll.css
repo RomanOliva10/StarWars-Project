@@ -1,0 +1,34 @@
+.getAll {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 35px;
+    gap: 30px;
+    justify-content: center;
+    padding-top: 50px;
+}
+.add-card {
+    width: 15%;
+    height: 250px;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgba(129, 124, 124, 0.5);
+}
+.add-container-img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0 0 0 35px;
+}
+.add {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.add-container-img p {
+    margin: 0 0 0 15px;
+    max-width: 50px;
+}

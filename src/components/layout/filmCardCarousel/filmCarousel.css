@@ -1,0 +1,98 @@
+.films-appearances-card{
+    position: relative;
+    width: 70%;
+    margin: 20px auto;
+}
+
+.films-appearances-card hr{
+
+    margin: 5px auto;
+    background: gray;
+    width: 100%;
+    border: none;
+    height: 3px;
+
+}
+
+
+/* ---- ----- ----- Contenedor Principal y Flechas ----- ----- ----- */
+
+
+.container-films-carousel{
+
+    display: flex;
+	align-items: center;
+	position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-films-carousel .button-left,
+.container-films-carousel .button-right {
+	position: absolute;
+	border: none;
+	background: rgba(0,0,0,0.3);
+	font-size: 40px;
+	height: 50%;
+	top: calc(50% - 25%);
+	line-height: 40px;
+	width: 50px;
+	color: #fff;
+	cursor: pointer;
+	z-index: 500;
+	transition: .2s ease all;
+}
+
+.container-films-carousel .button-left:hover,
+.container-films-carousel .button-right:hover {
+	background: rgba(0,0,0, .9);
+}
+
+.container-films-carousel .button-left {
+	left: 0;
+}
+
+.container-films-carousel .button-right {
+	right: 0;
+}
+
+/* ---- ----- ----- Carousel ----- ----- ----- */
+.container-carousel {
+	width: 100%;
+	padding: 20px 0;
+	overflow: hidden;
+	scroll-behavior: smooth;
+}
+
+.container-carousel .carousel {
+    
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+
+/* Media querys */
+
+@media (max-width: 800px){
+
+	.films-appearances-card{
+		width: 90%;
+	}
+	
+
+}
+
+@media (max-width: 550px){
+
+	.films-appearances-card{
+		width: 95%;
+	}
+	
+	.container-films-carousel{
+		height: 200px;
+		margin: 30px 0;
+
+	}
+
+	
+}

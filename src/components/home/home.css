@@ -1,0 +1,34 @@
+.container-home{
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-repeat: no-repeat;
+}
+
+.container-home .options{
+    background-color: rgba(4,11,23,0.7);
+    display: flex;
+    gap: 50px;
+    padding: 0px 15px;
+}
+
+.container-home .options a{
+    text-decoration: none;
+    color: yellow;
+}
+
+@media screen and (max-width: 1024px) {
+    
+}
+
+
+@media screen and (max-width: 550px) {
+    .container-home .options {
+        text-align: center;
+    }
+
+    .container-home .options a{
+        font-size: 0.7rem;
+    }
+}
