@@ -11,7 +11,7 @@ import Card from '../layout/card/Card';
 
 export default function Home({data}) {
     const vehicles = data[0].results;
-    const characters = data[0].results;
+    const characters = data[1].results;
 
     return (
         <Fragment>

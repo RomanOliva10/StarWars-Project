@@ -58,11 +58,10 @@ export default function CharactersGetOne() {
                         <div className="line-card">
                             <div className="container-card-get" >
                                 <div className="container-img-description">
-                                    <img className="img-main-description" src="" alt="" /> 
+                                    <img className="img-main-description" src={`https://swapi-tukiti.herokuapp.com/imgs/characters/${character.image}`} alt={character.name} /> 
                                 </div>
                                 <DescriptionColumn character={character} type="character" />
                             </div>
-                            <Link to={`/characters/edit/${id}`}>Editar</Link>
                         </div>
                         <FilmsCarousel data={[]} />
                     </div>

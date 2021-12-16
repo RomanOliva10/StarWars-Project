@@ -58,7 +58,7 @@ export default function VehiclesGetOne() {
                         <div className="line-card">
                             <div className="container-card-get" >
                                 <div className="container-img-description">
-                                    <img className="img-main-description" src="" alt="" /> 
+                                    <img className="img-main-description" src={`https://swapi-tukiti.herokuapp.com/imgs/vehicles/${vehicle.image}`} alt={vehicle.name} /> 
                                 </div>
                                 <DescriptionColumn character={vehicle} type="vehicle" />
                             <Link to={`/vehicles/edit/${id}`}>Editar</Link>

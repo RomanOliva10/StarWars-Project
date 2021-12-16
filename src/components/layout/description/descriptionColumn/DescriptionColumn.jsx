@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from 'react-router-dom';
 
 // import styles
 import './descriptionColumn.css'
@@ -9,21 +10,17 @@ import RowDescription from "../rowDescription/rowDescription";
 export default function DescriptionColumn({ character, type }) {
 
     //Divido la data que se trajo en los prop
-    let {name, description} = character;
+    let {name} = character;
     let dataPrimary, dataSecondary;
 
     dataPrimary = (type === "character") ?
         changeDataCharacter(0, character) :
         changeDataVehicle(0, character);
-    dataSecondary = (type === "character")?changeDataCharacter(1,character):changeDataVehicle(1,character);
+
+    dataSecondary = (type === "character")?
+        changeDataCharacter(1,character) : 
+        changeDataVehicle(1,character);
         
-
-    //referencias
-    let primaryColumn = useRef();
-    let secondaryColumn = useRef();
-
-
-    
 
     return(
         <div className="container-description">
@@ -31,21 +28,13 @@ export default function DescriptionColumn({ character, type }) {
             <h3 className="name-character">{name}</h3>
             <hr />
 
-                {/* {(type === "character") && 
-                
-                    <div ref={primaryColumn} className="column-primary-description ">
-                        <p>{description}</p>
-                    </div>
-                } */}
-            
-                
         
 
-            <div ref={secondaryColumn} className={`column-secondary-description ${(type === "character")?"disabled":""}`}>
+            <div className={`column-secondary-description`}>
 
                 <div className="description-physical-card-get">
 
-                    <h3 className="secondary-title"><i className="fas fa-circle-notch"></i> Physical description</h3>
+                    <h3 className="secondary-title"><i className="fas fa-circle-notch"></i> Description</h3>
 
                         <div className="data-secondary-card">
                             {dataPrimary.map((row, indx) => (<RowDescription key={indx} data={row} className="row-physical"/>))}
@@ -65,7 +54,7 @@ export default function DescriptionColumn({ character, type }) {
 
 
                 </div>
-
+                <Link to={`/${type}s/edit/${character.id}`}>Editar</Link>
             </div>
 
         </div>

@@ -1,10 +1,13 @@
+.container-form{
+    padding-top: 80px;
+}
+
 .form-area{
     padding: 40px 20px;
 }
 
 .signin-title{
     text-align: center;
-    margin: 20px 0;
 }
 
 .container-error{
@@ -25,12 +28,18 @@
 
 .form-group input{
     position: relative;
+    border: 1px solid red;
+}
+
+.form-group input:focus{
+    border: 1px solid red;
 }
 
 .container-input-pass{
     width: 100%;
     height: 40px;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .form-group .container-input-pass input{
@@ -46,7 +55,7 @@
     display: flex;
     right: 1%;
     bottom: 40%;
-    transform: translateY(50%);
+    transform: translateY(155%);
     color: gray;
     z-index: 20;
     cursor: pointer;
@@ -54,21 +63,32 @@
 
 .form-group .container-input-pass > input{
     height: 40px;
-    border: 1px solid #edd700;
+    border: 1px solid red;
     line-height: 40px;
     padding: 0 15px;
     border-radius: 3px;
 }
 .form-group .container-input-pass > input:focus{
     background-color: #484848;
-    color: #edd700; 
+    color: red; 
     outline: none;
-    border: 1px solid #edd700;
+    border: 1px solid red;
 }
 
 form .form-group .btn-signin{
-    margin: 15px 0 0 0;
+    margin: 20px 0 0 0;
     border: 1px solid red;
     color: red;
+}
 
+.form-area .btn-create{
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 1024px) {
+    .form-area {
+        width: 70%;
+    }
 }

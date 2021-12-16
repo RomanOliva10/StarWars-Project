@@ -48,9 +48,9 @@ export default function SignIn() {
             <Nav />
             <div className="wrapper"></div>
             <div className="wrapper-two"></div>
-            <div className="container-all">
+            <div className="container-form">
                 <div className="form-area" >
-                    <h1 className='signin-title'>sign in</h1>
+                    <h1 className='signin-title'>Sign In</h1>
 
                     {validador && 
 
@@ -63,14 +63,15 @@ export default function SignIn() {
                     <form method="post" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
                         
                         <div className="form-group">
-                            <input className={`signin-input ${errors.name && "error"}`} placeholder='Email' type="text" {...register("name", { required: true })}/>
+                        <label htmlFor="email">Email: </label>
+                            <input className={`signin-input ${errors.name && "error"}`} placeholder='Email' type="text" {...register("email", { required: true })}/>
                             {errors.name && <span className="error">This field is required</span>}
                         </div>
 
                         <div className="form-group">
 
                             <div className="container-input-pass">
-
+                            <label htmlFor="password">Password: </label>
                                 <input
                                 id='password' 
                                 className={errors.password && "error"}
@@ -81,21 +82,22 @@ export default function SignIn() {
                                 
 
                                 <span className="icon-signin" onClick={changeVisibilityPass}>
-                                    <i class="fas fa-eye disabled"></i>
-                                    <i class="fas fa-eye-slash"></i>
+                                    <i className="fas fa-eye disabled"></i>
+                                    <i className="fas fa-eye-slash"></i>
                                 </span>
+
                             </div>
                             {errors.password && <span className="error">This field is required</span>}
                         </div>
 
                         <div className="form-group">
-                            <button classname={"btn-signin"} type="submit">Sign in</button>
+                            <button className={"btn-signin"} type="submit">Sign in</button>
                         </div>
 
                     </form>
 
 
-                    <Link className="btn" to="/register">Create an Account</Link>
+                    <Link className="btn-create" to="/register">Create an Account</Link>
                 </div>
             </div>
         </Fragment>

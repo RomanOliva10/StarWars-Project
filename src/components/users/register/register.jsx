@@ -28,9 +28,9 @@ export default function Register(){
             <Nav/>
             <div className="wrapper"></div>
             <div className="wrapper-two"></div>
-            <div className="container-all">
+            <div className="container-form">
                 <div className="form-area">
-                    <h3>Register</h3>
+                    <h1 className='signin-title' >Register</h1>
                     <form method="post" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
                             <label htmlFor="name">Name: </label>
@@ -75,7 +75,7 @@ export default function Register(){
                         </div>
 
                         <div className="form-group">
-                            <button type="submit">Register</button>
+                            <button className={"btn-signin"} type="submit">Register</button>
                         </div>
                     </form>
                 </div>

@@ -17,8 +17,17 @@ export default function CharactersCreate() {
     const onSubmit = char => {
         // const URL = `http://localhost:4000/api/characters/create`;
         const URL = `https://swapi-tukiti.herokuapp.com/api/characters/create`;
+        let formData = new FormData();
+        
+        for (const key in char) {
+            formData.set(key, char[key]);
+        }
+        formData.append('imgFile', char.image[0]);
 
-        axios.post(URL, char)
+        console.log(formData.get('imgFile'));
+
+      
+        axios.post(URL, formData)
         .then(res => {  
             console.log(char);
             alert("Character created!");
@@ -135,20 +144,19 @@ export default function CharactersCreate() {
                             {errors.gender && <span className="error">This field is required</span>}
                         </div>
                         {/* Image */}
-                        {/* <div className="form-group">
+                        <div className="form-group">
                             <label htmlFor="image">Image: </label>
                             <input 
-                                accept="image/gif, image/png, image/jpeg"
                                 className={errors.image && "error"}
                                 type="file" 
                                 name="image"
                                 {...register("image", { required: true })} 
                             />
                             {errors.image && <span className="error">This field is required</span>}
-                        </div> */}
+                        </div>
 
                         <div className="form-group">
-                            <button class="btn" type="submit">crear</button>
+                            <button type="submit">crear</button>
                         </div>
                     </form>
                 </div>   
