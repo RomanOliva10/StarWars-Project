@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 // import styles
 import './descriptionColumn.css'
@@ -21,7 +23,22 @@ export default function DescriptionColumn({ character, type }) {
         changeDataCharacter(1,character) : 
         changeDataVehicle(1,character);
         
+        const navigate = useNavigate();
+    function fnDelete(){
 
+        const URL = `https://swapi-tukiti.herokuapp.com/api/${type}s/delete/${character.id}`;
+
+        axios.delete(URL)
+        .then(res => {  
+            alert("Character deleted!");
+            navigate('/characters');
+        })
+        .catch(error => {
+            console.log(error);
+        });      
+    }
+
+    
     return(
         <div className="container-description">
             
@@ -55,6 +72,7 @@ export default function DescriptionColumn({ character, type }) {
 
                 </div>
                 <Link to={`/${type}s/edit/${character.id}`}>Editar</Link>
+                <button onClick={fnDelete} >Delete</button>
             </div>
 
         </div>

@@ -7,7 +7,7 @@ import axios from "axios";
 import "./App.css"
 
 // import components
-import Home from "./components/home/home";
+import Home from "./components/home/Home";
 import CharactersGetAll from './components/characters/CharactersGetAll';
 import CharactersGetOne from './components/characters/CharactersGetOne';
 import CharactersCreate from './components/characters/CharactersCreate';
@@ -20,6 +20,13 @@ import VehiclesEdit from './components/vehicles/VehiclesEdit';
 import SignIn from './components/users/signIn/signIn';
 import Register from './components/users/register/register';
 
+import GetAllUsers from './components/users/getUsers/UsersGetAll';
+
+let users = [
+  {name: "Pablo", email: "pablo@gmail.com", pass:"123456"},
+  {name: "Matias", email: "matias@hotmail.com", pass: "11111"},
+  {name: "Matias", email: "matias@hotmail.com", pass: "11111"}
+];
 function App() {
   const [dataV, setDataV] = useState({ results: [] });
   const [dataP, setDataP] = useState({ results: [] });
@@ -39,6 +46,7 @@ function App() {
       .catch(error => console.log(error));
   }, []);
 
+
   return (
     <Routes>
         <Route index path="/" element={<Home data={[dataV, dataP]}/>} />
@@ -55,6 +63,7 @@ function App() {
         <Route path="/vehicles/:id" element={<VehiclesGetOne />} />
         <Route path="/vehicles/create" element={<VehiclesCreate />}/>
         <Route path="/vehicles/edit/:id" element={<VehiclesEdit />}/>
+        <Route path="/users" element={<GetAllUsers/>} dataU={users}/>
     </Routes>
   );
 }
