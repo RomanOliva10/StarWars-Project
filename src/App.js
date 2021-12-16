@@ -21,6 +21,7 @@ import SignIn from './components/users/signIn/signIn';
 import Register from './components/users/register/register';
 
 import GetAllUsers from './components/users/getUsers/UsersGetAll';
+import UsersGetOne from './components/users/getUsers/UsersGetOne'
 
 let users = [
   {name: "Pablo", email: "pablo@gmail.com", pass:"123456"},
@@ -63,7 +64,10 @@ function App() {
         <Route path="/vehicles/:id" element={<VehiclesGetOne />} />
         <Route path="/vehicles/create" element={<VehiclesCreate />}/>
         <Route path="/vehicles/edit/:id" element={<VehiclesEdit />}/>
-        <Route path="/users" element={<GetAllUsers/>} dataU={users}/>
+
+        <Route path="/users" element={<GetAllUsers dataU={users}/>}/>
+        <Route path="/user/:email" element={<UsersGetOne dataU={users}/>}/>
+
     </Routes>
   );
 }

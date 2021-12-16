@@ -10,13 +10,15 @@ import Nav from '../layout/nav/Nav';
 import NavigationFilter from '../layout/nav/NavigationFilter';
 import Spinner from '../layout/spinner/Spinner';
 import Card from '../layout/card/Card';
-
+import Search from '../layout/search/Search';
 
 export default function CharactersGetAll({ data }) {
 
     let [page, setPage] = useState(1);
     let [button, setButton] = useState(true);
     let [currentData, setCurrentData] = useState([]);
+    let [search, setSearch] = useState("");
+    let [searchError, setSearchError] = useState(false)
 
     useEffect(() => {
         const URL = `https://swapi-tukiti.herokuapp.com/api/characters/?page=${page}`;
@@ -45,6 +47,33 @@ export default function CharactersGetAll({ data }) {
         }
     }, [page, data]);
 
+    useEffect(() => {
+        if (search !== "") {
+            const URL = `https://swapi-tukiti.herokuapp.com/api/characters/?name=${search}`;
+            // const URL = `http://localhost:4000/api/characters/?name=${page}`;
+            console.log(URL);
+            axios.get(URL)
+            .then(res => {  
+                let response = res.data.results;
+                if (response.length === 0) {
+                    setCurrentData(data.results);
+                    setSearchError(true);
+                } else {
+                    setCurrentData(response);
+                    setButton(false);
+                    setSearchError(false);
+                }              
+            })
+            .catch(error => console.log(error));
+        } else {
+            setCurrentData(data.results);
+        }
+    }, [search]);
+
+    const searchData = data => {
+        setSearch(data);
+    }
+
     return (
         <Fragment>
             <Nav />
@@ -52,6 +81,7 @@ export default function CharactersGetAll({ data }) {
             <div className="wrapper-two"></div>
             <div className="container-all">
                 <div className="buttons">
+                    <Search searchData={searchData} searchError={searchError} />
                     <Link className="" to='/characters/create'>Create Character</Link>
                 </div>
                 <div className="container-cards">

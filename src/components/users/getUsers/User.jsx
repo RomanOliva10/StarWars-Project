@@ -7,7 +7,7 @@ export default function User({datos}){
     const navegate = useNavigate();
 
     const handleClick = () => {
-        navegate(`/Users/${datos.email}`);
+        navegate(`/user/${datos.email}`);
     }
 
     return(
