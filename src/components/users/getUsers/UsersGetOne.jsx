@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import { useLocation } from "react-router";
 import profileImg from "./img/STSF.png";
 
@@ -6,14 +6,13 @@ import profileImg from "./img/STSF.png";
 import './getUsers.css';
 import Nav from "../../layout/nav/Nav"
 
-import { Link } from "react-router-dom";
 
 export default function UsersGetOne(prop){
 
     const location = useLocation();
     let email = location.pathname.split('/')[2];
 
-    const user = prop.dataU.filter(e => e.email == email)[0];
+    const user = prop.dataU.filter(e => e.email === email)[0];
 
     return(
         <Fragment>
@@ -23,7 +22,7 @@ export default function UsersGetOne(prop){
                     <div className="red-card"><p>star wars</p></div>
 
                     <div className="black-card">
-                        <div className="profile-img"><img src={profileImg} /></div>
+                        <div className="profile-img"><img src={profileImg} alt={user.name} /></div>
                         <div className="profile-data">
                             <h2>name : {user.name}</h2>
                             <h2>email : {user.email}</h2>

@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 // import "../getAll.css";
 
 export default function User({datos}){

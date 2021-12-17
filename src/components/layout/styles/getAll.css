@@ -8,7 +8,7 @@
 }
 
 .getAll button{
-    border: solid #9e4f60;
+    border: solid #FFE81F;
     cursor: pointer;
     color: white;
     padding: 12px 30px;
@@ -17,7 +17,7 @@
 }
 
 .getAll button:hover{
-    color: #9e4f60;
-    background: black;
+    color:black;
+    background: white;
     border: solid #2a2a2a;
 }

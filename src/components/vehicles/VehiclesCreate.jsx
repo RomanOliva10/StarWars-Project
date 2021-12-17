@@ -42,8 +42,6 @@ export default function VehiclesCreate() {
     return (
         <Fragment>
             <Nav />
-            <div className="wrapper"></div>
-            <div className="wrapper-two"></div>
             <div className="container-form">
                 <div className="form-area">
                     <h3>add vehicle</h3>

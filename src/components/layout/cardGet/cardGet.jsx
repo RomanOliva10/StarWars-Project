@@ -109,12 +109,7 @@ export default function CardGet(prop){
                             <div className="col-description-get">
                                 <h4>Model</h4>
                                 <span>{model}</span>
-                            </div>
-                            <hr />
-                            <div className="col-description-get">
-                                <h4>Transport</h4>
-                                <span>{transport}</span>
-                            </div>
+                            </div>                           
                             <hr />
                             <div className="col-description-get">
                                 <h4>Cost</h4>
@@ -161,8 +156,8 @@ export default function CardGet(prop){
 
                 <div className="container-buttons-get">
 
-                    <Link to={`/${prop.type}s/edit/${id}`}><i class="fas fa-edit"></i></Link>
-                    <button onClick={fnDelete} ><i class="fas fa-trash-alt"></i></button>
+                    <Link to={`/${prop.type}s/edit/${id}`}><i className="fas fa-edit"></i></Link>
+                    <button onClick={fnDelete} ><i className="fas fa-trash-alt"></i></button>
 
                 </div>
 

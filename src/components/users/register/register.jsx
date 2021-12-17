@@ -1,14 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import './register.css';
 /* Pruebas */
-import axios from 'axios';
 import Nav from '../../layout/nav/Nav';
 import { Fragment } from 'react/cjs/react.production.min';
 
 export default function Register(){
     
-    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
     //Se usa como referencia el password para luego en el campo de confirm password poder compararlo
     const password = useRef();
     password.current = watch("password");
@@ -26,8 +25,6 @@ export default function Register(){
     return (
         <Fragment>
             <Nav/>
-            <div className="wrapper"></div>
-            <div className="wrapper-two"></div>
             <div className="container-form">
                 <div className="form-area">
                     <h1 className='signin-title' >Register</h1>

@@ -106,8 +106,6 @@ export default function VehiclesEdit() {
                     vehicle.length === 0 ?
                     <Spinner msg="loading" /> :
                     <Fragment>
-                        <div className="wrapper"></div>
-                        <div className="wrapper-two"></div>
                         <div className="form-area">
                             <h3>edit vehicle</h3>
                             <form method="post" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>

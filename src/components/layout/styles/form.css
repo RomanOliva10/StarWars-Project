@@ -18,6 +18,7 @@
     border-radius: 15px;
 }
 .form-area > h1 {
+    color: #FFE81F;
     padding: 20px 0;
     text-align: center;
     font-weight: lighter;
@@ -30,7 +31,7 @@
 
 .form-group input{
     height: 40px;
-    border: solid #9e4f60;
+    border: solid #FFE81F;
     line-height: 40px;
     padding: 0 15px;
     border-radius: 3px;
@@ -38,7 +39,7 @@
 .form-group > select,
 .form-group > textarea {
     height: 40px;
-    border: solid #9e4f60;
+    border: solid #FFE81F;
     line-height: 40px;
     padding: 0 15px;
     border-radius: 3px;
@@ -49,7 +50,7 @@
     background-color: #484848;
     color: white; 
     outline: none;
-    border: solid #9e4f60;
+    border: solid #FFE81F;
 }
 .form-group > textarea {
     resize: none;
@@ -83,7 +84,7 @@
     height: 42px;
 }
 .form-group .btn:hover {
-    border: solid #9e4f60;
+    border: solid #FFE81F;
     cursor: pointer;
 }
 .error {

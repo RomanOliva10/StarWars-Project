@@ -4,14 +4,13 @@
 
 
 nav {
-    background-image: url(https://cdn.wallpapersafari.com/81/95/Z7D2q6.jpg);
     width: 100vw;
     font-size: 1.5rem;
     line-height: 40px;
     height: 90px;
     position: fixed;
     z-index: 50;
-    background-size: contain;
+    background: #2a2a2a;
 }
 
 .container{
@@ -32,7 +31,7 @@ ul{
 
 li a {
     text-decoration:none;
-    color: white;
+    color: #FFE81F;
 }
 
 .title{

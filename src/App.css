@@ -8,5 +8,7 @@
 }
 
 body{
-  background-color: rgba(22,22,22,255);
+  background-size: contain;
+  background-image: url(https://cdn.wallpapersafari.com/81/95/Z7D2q6.jpg);
+  background-attachment: fixed;
 }

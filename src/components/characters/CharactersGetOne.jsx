@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 // import components
@@ -42,8 +42,6 @@ export default function CharactersGetOne() {
     return(
         <Fragment>
             <Nav />
-            <div className="wrapper"></div>
-            <div className="wrapper-two"></div>
             <div className="container-all">
                 {
                     error404 ?
@@ -57,4 +55,3 @@ export default function CharactersGetOne() {
         </Fragment>
     );
 }
-

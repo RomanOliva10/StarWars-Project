@@ -1,7 +1,7 @@
 .search-icon,
 .form-search {
     height: 50px;
-    border: solid #9e4f60;
+    border: solid #FFE81F;
     line-height: 40px;
     padding: 0 15px;
     border-radius: 5px;
@@ -12,13 +12,15 @@
     background-color: #161616;
     color: white;
     outline: none;
-    border: solid #9e4f60;
+    border-right-color: #FFE81F;
+    border-top-color: #FFE81F;
+    border-bottom-color: #FFE81F;
 }
-.search-error,
+/* .search-error,
 .search-error:focus,
 .search-error:hover {
-    border: solid #9e4f60;
-}
+    
+} */
 .search-error-text {
     padding-top: 70px;
     color: white;
@@ -36,6 +38,7 @@
 }
 
 .search-icon:hover {
+    cursor: pointer;
     background: black;
     color: white;
 }

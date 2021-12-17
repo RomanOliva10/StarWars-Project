@@ -17,8 +17,6 @@ export default function Home({data}) {
     return (
         <Fragment>
             <Nav />
-            <div className="wrapper"></div>
-            <div className="wrapper-two"></div>
             <div className="container-all">
                 <div className="container-cards">
                     <NavigationFilter />

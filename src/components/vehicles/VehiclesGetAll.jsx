@@ -36,7 +36,9 @@ export default function VehiclesGetAll({ data }) {
         } else {
             axios.get(URL)
             .then(res => {  
-                setCurrentData([...currentData, ...res.data.results]);
+                setCurrentData(prevData => {
+                    return [...prevData, ...res.data.results]
+                });
 
                 if (page*10 < data.count) {
                     setButton(true);
@@ -69,7 +71,7 @@ export default function VehiclesGetAll({ data }) {
         } else {
             setCurrentData(data.results);
         }
-    }, [search]);
+    }, [search, data]);
 
     const searchData = data => {
         setSearch(data);
@@ -78,8 +80,6 @@ export default function VehiclesGetAll({ data }) {
     return (
         <Fragment>
             <Nav />
-            <div className="wrapper"></div>
-            <div className="wrapper-two"></div>
             <div className="container-all">
                 <div className="buttons">
                     <Search searchData={searchData} searchError={searchError} />

@@ -1,11 +1,9 @@
 import React,{Fragment} from 'react';
-import { Link } from "react-router-dom";
 
 //Style
 import './getUsers.css';
 import Nav from "../../layout/nav/Nav"
 import User from "./User"
-import Spinner from "../../layout/spinner/Spinner";
 
 export default function GetAllUsers({dataU}){
     return(

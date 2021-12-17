@@ -105,8 +105,6 @@ export default function CharactersEdit() {
                     character.length === 0 ?
                     <Spinner msg="loading" /> :
                     <Fragment>
-                        <div className="wrapper"></div>
-                        <div className="wrapper-two"></div>
                         <div className="form-area">
                             <h1>Edit Character</h1>
                             <form encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>

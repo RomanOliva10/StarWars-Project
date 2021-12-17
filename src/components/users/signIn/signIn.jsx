@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {Link} from "react-router-dom";
 
 //Estilos
 import './signIn.css';
 /* Pruebas */
-import axios from 'axios';
 import { Fragment } from 'react/cjs/react.production.min';
 import Nav from '../../layout/nav/Nav';
 
@@ -14,7 +13,7 @@ const validador = false;
 
 export default function SignIn() {
     
-    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const initialState = true;
     const [stateTest, setStateTest] = useState(initialState);
@@ -46,8 +45,6 @@ export default function SignIn() {
     return (
         <Fragment>
             <Nav />
-            <div className="wrapper"></div>
-            <div className="wrapper-two"></div>
             <div className="container-form">
                 <div className="form-area" >
                     <h1 className='signin-title'>Sign In</h1>
