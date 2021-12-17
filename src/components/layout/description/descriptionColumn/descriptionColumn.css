@@ -42,7 +42,35 @@
     margin: 0px 0;
 }
 
+.column-secondary-description .info-bio-card-get{
+    padding-top: 10px;
+}
 
+
+.container-description .options{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.container-description .options a{
+    text-decoration: none;
+    color: white;
+    background: blueviolet;
+    padding: 12px 18px;
+    border-radius: 10px;
+}
+
+.container-description .options button{
+    border: none;
+    text-decoration: none;
+    color: white;
+    background: blueviolet;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
 /* Media querys */
 

@@ -91,7 +91,7 @@ export default function SignIn() {
                         </div>
 
                         <div className="form-group">
-                            <button className={"btn-signin"} type="submit">Sign in</button>
+                            <button className={"btn"} type="submit">Sign in</button>
                         </div>
 
                     </form>

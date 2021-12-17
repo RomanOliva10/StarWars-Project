@@ -12,6 +12,7 @@ import DescriptionColumn from '../layout/description/descriptionColumn/Descripti
 import FilmsCarousel from '../layout/filmCardCarousel/filmCarousel';
 import Nav from '../layout/nav/Nav';
 import NavigationFilter from '../layout/nav/NavigationFilter';
+import Footer from '../layout/footer/footer'
 
 export default function VehiclesGetOne() {
     // vehicle state
@@ -61,13 +62,13 @@ export default function VehiclesGetOne() {
                                     <img className="img-main-description" src={`https://swapi-tukiti.herokuapp.com/imgs/vehicles/${vehicle.image}`} alt={vehicle.name} /> 
                                 </div>
                                 <DescriptionColumn character={vehicle} type="vehicle" />
-                            <Link to={`/vehicles/edit/${id}`}>Editar</Link>
                             </div>
                         </div>
                         <FilmsCarousel data={[]} />
                     </div>
                 }            
             </div>
+            <Footer/>
         </Fragment>
     );
 }

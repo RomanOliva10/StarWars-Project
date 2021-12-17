@@ -8,6 +8,7 @@ import Nav from '../layout/nav/Nav';
 import NavigationFilter from '../layout/nav/NavigationFilter';
 import Spinner from '../layout/spinner/Spinner';
 import Card from '../layout/card/Card';
+import Footer from '../layout/footer/footer'
 
 export default function Home({data}) {
     const vehicles = data[0].results;
@@ -39,6 +40,7 @@ export default function Home({data}) {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </Fragment>
         
     );

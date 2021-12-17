@@ -71,8 +71,10 @@ export default function DescriptionColumn({ character, type }) {
 
 
                 </div>
-                <Link to={`/${type}s/edit/${character.id}`}>Editar</Link>
-                <button onClick={fnDelete} >Delete</button>
+                <div className="options">
+                    <Link to={`/${type}s/edit/${character.id}`}>Editar</Link>
+                    <button onClick={fnDelete} >Delete</button>
+                </div>
             </div>
 
         </div>
@@ -128,8 +130,6 @@ function changeDataVehicle(type, data){
         resp =  [
             {   category: "Model",
                 info : data.model},
-            {   category:"Class",
-                info : data.vehicle_lass},
             {   category: "Cost",
                 info: data.cost_in_credits},
             {   category: "Length",

@@ -7,7 +7,7 @@
     justify-content: center;
 }
 
-button{
+.getAll button{
     border: solid #9e4f60;
     cursor: pointer;
     color: white;
@@ -16,7 +16,7 @@ button{
     background: none;
 }
 
-button:hover{
+.getAll button:hover{
     color: #9e4f60;
     background: black;
     border: solid #2a2a2a;

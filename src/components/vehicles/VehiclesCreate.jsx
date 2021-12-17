@@ -8,6 +8,7 @@ import '../layout/styles/form.css';
 
 // import components
 import Nav from '../layout/nav/Nav';
+import Footer from '../layout/footer/footer'
 
 export default function VehiclesCreate() {
     const navigate = useNavigate();
@@ -41,7 +42,9 @@ export default function VehiclesCreate() {
     return (
         <Fragment>
             <Nav />
-            <div className="container-home">
+            <div className="wrapper"></div>
+            <div className="wrapper-two"></div>
+            <div className="container-form">
                 <div className="form-area">
                     <h3>add vehicle</h3>
                     <form method="post" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
@@ -181,6 +184,7 @@ export default function VehiclesCreate() {
                     </form>
                 </div>   
             </div>
+            <Footer/>
         </Fragment>       
     );
 }

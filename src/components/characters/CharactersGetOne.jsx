@@ -12,6 +12,7 @@ import DescriptionColumn from '../layout/description/descriptionColumn/Descripti
 import FilmsCarousel from '../layout/filmCardCarousel/filmCarousel';
 import Nav from '../layout/nav/Nav';
 import NavigationFilter from '../layout/nav/NavigationFilter';
+import Footer from '../layout/footer/footer'
 
 export default function CharactersGetOne() {
     // character state
@@ -67,6 +68,7 @@ export default function CharactersGetOne() {
                     </div>
                 }            
             </div>
+            <Footer/>
         </Fragment>
     );
 }

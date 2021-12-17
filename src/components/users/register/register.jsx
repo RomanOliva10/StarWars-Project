@@ -75,7 +75,7 @@ export default function Register(){
                         </div>
 
                         <div className="form-group">
-                            <button className={"btn-signin"} type="submit">Register</button>
+                            <button className={"btn"} type="submit">Register</button>
                         </div>
                     </form>
                 </div>

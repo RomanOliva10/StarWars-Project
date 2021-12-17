@@ -2,7 +2,7 @@
     padding-top: 80px;
 }
 
-.form-area{
+.form-area-login{
     padding: 40px 20px;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .container-error{
-    outline: 1px solid red;
+    outline: solid red;
     font-size: 1rem;
     padding: 20px 10px;
     color: red;
@@ -28,11 +28,11 @@
 
 .form-group input{
     position: relative;
-    border: 1px solid red;
+    border: solid #9e4f60;
 }
 
 .form-group input:focus{
-    border: 1px solid red;
+    border: solid #9e4f60;
 }
 
 .container-input-pass{
@@ -63,22 +63,16 @@
 
 .form-group .container-input-pass > input{
     height: 40px;
-    border: 1px solid red;
+    border: solid #9e4f60;
     line-height: 40px;
     padding: 0 15px;
     border-radius: 3px;
 }
 .form-group .container-input-pass > input:focus{
     background-color: #484848;
-    color: red; 
+    color: #9e4f60; 
     outline: none;
-    border: 1px solid red;
-}
-
-form .form-group .btn-signin{
-    margin: 20px 0 0 0;
-    border: 1px solid red;
-    color: red;
+    border: solid #9e4f60;
 }
 
 .form-area .btn-create{
@@ -88,7 +82,7 @@ form .form-group .btn-signin{
 }
 
 @media screen and (max-width: 1024px) {
-    .form-area {
+    .form-area-login {
         width: 70%;
     }
 }

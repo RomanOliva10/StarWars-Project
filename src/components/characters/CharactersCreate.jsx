@@ -8,6 +8,7 @@ import '../layout/styles/form.css';
 
 // import components
 import Nav from '../layout/nav/Nav';
+import Footer from '../layout/footer/footer'
 
 export default function CharactersCreate() {
     const navigate = useNavigate();
@@ -41,9 +42,11 @@ export default function CharactersCreate() {
     return (
         <Fragment>
             <Nav />
-            <div className="container-home">
+            <div className="wrapper"></div>
+            <div className="wrapper-two"></div>
+            <div className="container-form">
                 <div className="form-area">
-                    <h3>add character</h3>
+                    <h1>Add Character</h1>
                     <form method="post" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
                         {/* Name */}
                         <div className="form-group">
@@ -156,11 +159,12 @@ export default function CharactersCreate() {
                         </div>
 
                         <div className="form-group">
-                            <button type="submit">crear</button>
+                            <button className="btn" type="submit">Create</button>
                         </div>
                     </form>
                 </div>   
             </div>
+            <Footer/>
         </Fragment>       
     );
 }
