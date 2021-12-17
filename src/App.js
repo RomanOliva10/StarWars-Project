@@ -7,7 +7,7 @@ import axios from "axios";
 import "./App.css"
 
 // import components
-import Home from "./components/home/Home";
+import Home from "./components/home/home";
 import CharactersGetAll from './components/characters/CharactersGetAll';
 import CharactersGetOne from './components/characters/CharactersGetOne';
 import CharactersCreate from './components/characters/CharactersCreate';

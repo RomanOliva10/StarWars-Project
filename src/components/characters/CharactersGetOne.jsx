@@ -1,18 +1,13 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
-// import styles
-import '../layout/styles/getOne.css';
 
 // import components
 import Error from '../layout/error/Error';
 import Spinner from '../layout/spinner/Spinner';
-import DescriptionColumn from '../layout/description/descriptionColumn/DescriptionColumn';
-import FilmsCarousel from '../layout/filmCardCarousel/filmCarousel';
 import Nav from '../layout/nav/Nav';
-import NavigationFilter from '../layout/nav/NavigationFilter';
-import Footer from '../layout/footer/footer'
+import Footer from '../layout/footer/footer';
+import CardGet from '../layout/cardGet/cardGet';
 
 export default function CharactersGetOne() {
     // character state
@@ -55,20 +50,11 @@ export default function CharactersGetOne() {
                     <Error msg="not found" code="404" /> :
                     character.length === 0 ?
                     <Spinner msg="loading" /> :
-                    <div className="main-get">
-                        <div className="line-card">
-                            <div className="container-card-get" >
-                                <div className="container-img-description">
-                                    <img className="img-main-description" src={`https://swapi-tukiti.herokuapp.com/imgs/characters/${character.image}`} alt={character.name} /> 
-                                </div>
-                                <DescriptionColumn character={character} type="character" />
-                            </div>
-                        </div>
-                        <FilmsCarousel data={[]} />
-                    </div>
+                    <CardGet data={character} type={"character"}/>
                 }            
             </div>
             <Footer/>
         </Fragment>
     );
 }
+
