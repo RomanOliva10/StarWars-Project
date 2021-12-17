@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import { Link } from "react-router-dom";
 
 //Style
 import './getUsers.css';
-
+import Nav from "../../layout/nav/Nav"
 import User from "./User"
 import Spinner from "../../layout/spinner/Spinner";
 
@@ -11,6 +11,8 @@ export default function GetAllUsers({dataU}){
     return(
         // dataU.results.length === 0 ? 
         // <Spinner msg="loading users" />:
+        <Fragment>
+            <Nav/>
         <div className="container-all-users">
             <div className='table-container'>
                 <table>
@@ -25,5 +27,6 @@ export default function GetAllUsers({dataU}){
                 </table>
             </div>
         </div>
+        </Fragment>
     )
 }

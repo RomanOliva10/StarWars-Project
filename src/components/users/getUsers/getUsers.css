@@ -5,6 +5,8 @@
 }
 
 .container-all-users{
+    
+
     width: 100%;
     height: 100vh;
     background-image: url('./img/users-background.jpg');
@@ -48,6 +50,7 @@ tr:hover{
 }
 
 .user-container-all{
+    font-family: 'Star Jedi', arial;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,9 +75,6 @@ tr:hover{
     border-radius: 15px;
     background: #cc3843;
     color: #a32d36;
-    box-shadow: 1px 1px 31px 17px rgba(242,242,242,0.68);
-    -webkit-box-shadow: 1px 1px 31px 17px rgba(242,242,242,0.68);
-    -moz-box-shadow: 1px 1px 31px 17px rgba(242,242,242,0.68);
 }
 
 .red-card p{
@@ -83,7 +83,7 @@ tr:hover{
     transform: rotate(-90deg);
     font-size: 70px;
     left: -140px;
-    bottom: 190px;
+    bottom: 210px;
 }
 
 .black-card{
@@ -98,9 +98,6 @@ tr:hover{
     background-color: #0c1f2c;
     border-radius: 15px;
     font-size: 13px;
-    box-shadow: 1px 1px 31px 17px rgba(242,242,242,0.68);
-    -webkit-box-shadow: 1px 1px 31px 17px rgba(242,242,242,0.68);
-    -moz-box-shadow: 1px 1px 31px 17px rgba(242,242,242,0.68);
 }
 
 .profile-img{
