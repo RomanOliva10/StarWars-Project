@@ -81,6 +81,17 @@
     color: white;
 }
 
+.form-group .btn {
+    background-color: #484848;
+    font-size: 16.5px;
+    color: #f4f5f5;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.form-group .btn:hover {
+    border: solid #9e4f60;
+}
+
 @media screen and (max-width: 1024px) {
     .form-area-login {
         width: 70%;

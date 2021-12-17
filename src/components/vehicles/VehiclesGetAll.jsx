@@ -11,6 +11,7 @@ import NavigationFilter from '../layout/nav/NavigationFilter';
 import Spinner from '../layout/spinner/Spinner';
 import Card from '../layout/card/Card';
 import Search from '../layout/search/Search';
+import Footer from '../layout/footer/footer'
 
 export default function VehiclesGetAll({ data }) {
 
@@ -98,6 +99,7 @@ export default function VehiclesGetAll({ data }) {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </Fragment>
     );
 }

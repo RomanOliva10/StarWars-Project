@@ -221,7 +221,7 @@ export default function CharactersEdit() {
                                 </div>
                                 
                                 <div className="form-group">
-                                    <button type="submit">Edit</button>
+                                    <button className="btn" type="submit">Edit</button>
                                 </div>
                             </form>
                         </div>

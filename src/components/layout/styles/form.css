@@ -115,3 +115,9 @@ textarea.error:focus {
         flex-direction: column;
     }
 }
+
+@media screen and (max-width: 550px) {
+    .form-area > h1 {
+        font-size: 2rem;
+    }
+}
