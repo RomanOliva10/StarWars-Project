@@ -8,19 +8,23 @@ import "./App.css"
 
 // import components
 import Home from "./components/home/Home";
+
+// character components
 import CharactersGetAll from './components/characters/CharactersGetAll';
 import CharactersGetOne from './components/characters/CharactersGetOne';
 import CharactersCreate from './components/characters/CharactersCreate';
 import CharactersEdit from './components/characters/CharactersEdit';
 
+// vehicles components
 import VehiclesGetAll from './components/vehicles/VehiclesGetAll';
 import VehiclesGetOne from './components/vehicles/VehiclesGetOne';
 import VehiclesCreate from './components/vehicles/VehiclesCreate';
 import VehiclesEdit from './components/vehicles/VehiclesEdit';
+
+// login & user components
 import SignIn from './components/users/signIn/signIn';
 import Register from './components/users/register/register';
-
-import GetAllUsers from './components/users/getUsers/UsersGetAll';
+import UsersGetAll from './components/users/getUsers/UsersGetAll';
 import UsersGetOne from './components/users/getUsers/UsersGetOne'
 
 let users = [
@@ -65,9 +69,8 @@ function App() {
         <Route path="/vehicles/create" element={<VehiclesCreate />}/>
         <Route path="/vehicles/edit/:id" element={<VehiclesEdit />}/>
 
-        <Route path="/users" element={<GetAllUsers dataU={users}/>}/>
-        <Route path="/user/:email" element={<UsersGetOne dataU={users}/>}/>
-
+        <Route path="/users" element={<UsersGetAll />}/>
+        <Route path="/users/:email" element={<UsersGetOne />}/>
     </Routes>
   );
 }
