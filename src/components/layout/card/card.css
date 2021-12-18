@@ -49,4 +49,8 @@ img {
     .card {
         width: 80%;
     }
+
+    .container-text{
+        font-size: 0.7rem;
+    }
 }

@@ -6,11 +6,6 @@
 
 .container-all-users{
     padding-top:120px;
-    width: 100%;
-    height: 100vh;
-    background-image: url('./img/users-background.jpg');
-    background-position: center;
-    background-size: cover;
 }
 
 .table-container{
@@ -54,11 +49,6 @@ tr:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100vh;
-    background-image: url('./img/user-background.jpg');
-    background-position:top;
-    background-size: cover;
 }
 
 .user-container{

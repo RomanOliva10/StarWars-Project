@@ -11,7 +11,9 @@ import NavigationFilter from '../layout/nav/NavigationFilter';
 import Spinner from '../layout/spinner/Spinner';
 import Card from '../layout/card/Card';
 import Search from '../layout/search/Search';
-import Footer from '../layout/footer/footer'
+import Footer from '../layout/footer/footer';
+import Header from '../layout/header/header';
+
 import { SessionContext } from '../../context/sessionContext';
 
 export default function VehiclesGetAll({ data }) {
@@ -82,6 +84,7 @@ export default function VehiclesGetAll({ data }) {
     return (
         <Fragment>
             <Nav />
+            <Header/>
             <div className="container-all">
                 <div className="buttons">
                     <Search searchData={searchData} searchError={searchError} />

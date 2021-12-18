@@ -17,9 +17,10 @@
 
 .buttons{
     padding-bottom: 50px;
-    padding-right: 10px;
     display: flex;
     justify-content: flex-end;
+    gap: 50px;
+
 }
 
 .buttons a{
@@ -51,6 +52,7 @@
 }
 
 .container-cards .options a{
+    text-align: center;
     border: solid #FFE81F;
     text-decoration: none;
     color: white;
@@ -86,12 +88,30 @@
 }
 
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 570px) {
+    .container-cards {
+        flex-direction: column;
+    }
+    
     .container-cards .options {
+        flex-direction: initial;
         text-align: center;
+        justify-content: center;
+        padding-bottom: 50px;
     }
 
     .container-cards .options a{
         font-size: 0.7rem;
+    }
+
+    .container-cards .options .all{
+        padding: 7px 27px;
+    }
+
+    .buttons{
+        grid-gap: 25px;
+        gap: 25px;
+        flex-direction: column-reverse;
+        justify-content: center;
     }
 }

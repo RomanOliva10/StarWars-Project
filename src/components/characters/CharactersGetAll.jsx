@@ -12,6 +12,8 @@ import Spinner from '../layout/spinner/Spinner';
 import Card from '../layout/card/Card';
 import Search from '../layout/search/Search';
 import Footer from '../layout/footer/footer'
+import Header from '../layout/header/header';
+
 
 // import context
 import { SessionContext } from '../../context/sessionContext';
@@ -84,6 +86,7 @@ export default function CharactersGetAll({ data }) {
     return (
         <Fragment>
             <Nav />
+            <Header/>
             <div className="container-all">
                 <div className="buttons">
                     <Search searchData={searchData} searchError={searchError} />

@@ -34,6 +34,21 @@ li a {
     color: #FFE81F;
 }
 
+.nav li ul {
+    width: 170px;
+    display: none;
+    position: absolute;
+}
+
+.nav li:hover > ul {
+    display:block;
+    background: #2a2a2a;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
 .title{
     font-family: "Star Jedi"
 }

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { SessionContext } from '../../../context/sessionContext';
 
@@ -14,11 +14,14 @@ export default function UserMenu() {
 
     return (
         // Hay que estilar esto
-        <div>
-            <a href="!#">Welcome {session.user.name}</a>
-            <Link to="/users">View All Users</Link>
-            <Link to={`/users/${session.user.email}`}>My Profile</Link>
-            <a href="!#" onClick={handleClick}>Logout</a>
-        </div>
+        <Fragment>
+            <li><a href="!#">{session.user.name}    <i class="fas fa-chevron-down"></i></a>
+                <ul>
+                    <li><Link to="/users">View All Users</Link></li>
+                    <li><Link to={`/users/${session.user.email}`}>My Profile</Link></li>
+                    <li><a href="!#" onClick={handleClick}>Logout</a></li>
+                </ul>
+            </li>
+        </Fragment>
     )
 }

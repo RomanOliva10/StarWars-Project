@@ -7,16 +7,6 @@ body{
 :root{
     --terciario: #FFE81F;
 }
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
-html{
-    font-size: 16px;
-}
-
 /* Imagen */
 
 .img-container-get{
@@ -196,5 +186,17 @@ html{
 
     .description-container-get{
         width: 95%;
+    }
+
+    .description-container-get  .container-title-get .title-get {
+        font-size: 2rem;
+    }
+
+    .container-title-get {
+        top: 0%;
+    }
+
+    .container-title-get hr {
+        width: 25%;
     }
 }
