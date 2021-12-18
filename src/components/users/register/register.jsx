@@ -61,7 +61,7 @@ export default function Register() {
             <div className="container-form">
                 <div className="form-area">
                     <h1 className='signin-title' >Register</h1>
-                    <form method="post" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
                             <label htmlFor="name">Name: </label>
                             <input 

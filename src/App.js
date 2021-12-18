@@ -30,6 +30,7 @@ import Register from './components/users/register/register';
 import UsersGetAll from './components/users/getUsers/UsersGetAll';
 import UsersGetOne from './components/users/getUsers/UsersGetOne'
 import LoggedRoute from './components/routes/LoggedRoute';
+import UsersEdit from './components/users/editUsers/UsersEdit';
 
 function App() {
 
@@ -82,6 +83,7 @@ function App() {
 
       <Route path="/users" element={ <LoggedRoute> <UsersGetAll /> </LoggedRoute> } />
       <Route path="/users/:email" element={ <LoggedRoute> <UsersGetOne /> </LoggedRoute> } />
+      <Route path="/users/edit/:email" element={ <LoggedRoute> <UsersEdit /> </LoggedRoute> } />
     </Routes>
   );
 }
