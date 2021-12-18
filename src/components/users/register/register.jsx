@@ -1,23 +1,49 @@
-import React, { useRef } from 'react';
+import React, { Fragment, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import './register.css';
-/* Pruebas */
-import Nav from '../../layout/nav/Nav';
-import { Fragment } from 'react/cjs/react.production.min';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-export default function Register(){
-    
+// import styles
+import './register.css';
+
+// import components
+import Nav from '../../../../../components/layout/nav/Nav';
+
+export default function Register() {
+    const navigate = useNavigate();
+
+    let [emailError, setEmailError] = useState(false);
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    
     //Se usa como referencia el password para luego en el campo de confirm password poder compararlo
     const password = useRef();
     password.current = watch("password");
     
     const onSubmit = userData => {
-        // Si estamos acá es porque completaron todos los campos
-        // Una vez hecho el back habría que enviar {userData} al back
-        // Por el momento sólo mostramos los valores en un console.log
+        // send data to API
+        axios
+        .post("https://swapi-tukiti.herokuapp.com/api/users/create", userData)
+        .then(res => {
+            if (res.data.error) {
+                setEmailError(true);
+            } else if (res.data.token) {
+                // reset mail error
+                setEmailError(false);
 
-        
+                // if user was created, store the token in localStorage
+                localStorage.setItem('user', JSON.stringify(res.data.user));
+                localStorage.setItem('token', JSON.stringify(res.data.token));
+                
+                alert('User Created!!');
+
+                navigate('/');
+            } else {
+                console.log("Unknown Error");
+            }
+        })
+        .catch(error => console.log(error));
+
 
         /* console.log(userData); */
     }
@@ -25,6 +51,8 @@ export default function Register(){
     return (
         <Fragment>
             <Nav/>
+            <div className="wrapper"></div>
+            <div className="wrapper-two"></div>
             <div className="container-form">
                 <div className="form-area">
                     <h1 className='signin-title' >Register</h1>
@@ -47,6 +75,7 @@ export default function Register(){
                                 {...register("email", { required: true })} 
                             />
                             {errors.email && <span className="error">This field is required</span>}
+                            {emailError && <span className="error">The email already exists</span>}
                         </div>
 
                         <div className="form-group">
@@ -57,7 +86,7 @@ export default function Register(){
                                 {...register("password", { required: true , minLength: 8 })} 
                             />
                             {errors.password && errors.password.type === "required" && <span className="error">This field is required</span>}
-                            {errors.password && errors.password.type === "minLength" && <span className='error'>Min Length 8</span>}{/* Falta probar */}
+                            {errors.password && errors.password.type === "minLength" && <span className='error'>Min Length 8</span>}
                         </div>
 
                         <div className="form-group">
@@ -68,11 +97,12 @@ export default function Register(){
                                 {...register("confirmPassword", { required: true, validate: (value) => value === password.current, minLength: 8 })} 
                             />
                             {errors.confirmPassword && errors.confirmPassword.type === "required" && <span className="error">This password confirm field is required</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "minLength" && <span className='error'>Min Length 8</span>}
                             {errors.confirmPassword && errors.confirmPassword.type === "validate" && <span className='error'>The passwords do not match</span>}
                         </div>
 
                         <div className="form-group">
-                            <button className={"btn"} type="submit">Register</button>
+                            <button className="btn" type="submit">Register</button>
                         </div>
                     </form>
                 </div>
