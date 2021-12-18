@@ -51,8 +51,6 @@ export default function Register() {
     return (
         <Fragment>
             <Nav/>
-            <div className="wrapper"></div>
-            <div className="wrapper-two"></div>
             <div className="container-form">
                 <div className="form-area">
                     <h1 className='signin-title' >Register</h1>
