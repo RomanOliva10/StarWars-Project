@@ -7,7 +7,7 @@ import axios from 'axios';
 import './register.css';
 
 // import components
-import Nav from '../../../../../components/layout/nav/Nav';
+import Nav from '../../layout/nav/Nav';
 
 export default function Register() {
     const navigate = useNavigate();

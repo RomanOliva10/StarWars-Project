@@ -13,7 +13,7 @@ const textMock = "TEXT MOCK was a Tatooine farmboy who rose from humble beginnin
 export default function CardGet(prop){
 
         let {name, description, height, mass, hair_color, skin_color, eye_color, birth_year, gender, image, id} = prop.data;
-        let{model, transport, manufacturer, cost_in_credits, length, max_atmosphering_speed, cargo_capacity, vehicle_class} = prop.data;
+        let{model, manufacturer, cost_in_credits, length, max_atmosphering_speed, cargo_capacity, vehicle_class} = prop.data;
 
         let character = (prop.type === "character")?true:false;
         let vehicle = (prop.type === "vehicle")?true:false;

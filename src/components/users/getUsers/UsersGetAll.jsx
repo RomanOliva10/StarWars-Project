@@ -5,9 +5,9 @@ import axios from 'axios';
 import './getUsers.css';
 
 // import components
-import Nav from "../../../../../components/layout/nav/Nav"
-import User from "../../../../../components/users/getUsers/User"
-import Spinner from '../../../../../components/layout/spinner/Spinner';
+import Nav from "../../layout/nav/Nav"
+import User from "../../users/getUsers/User"
+import Spinner from '../../layout/spinner/Spinner';
 
 
 export default function GetAllUsers() {

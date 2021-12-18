@@ -1,16 +1,18 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { useLocation } from "react-router";
+import axios from "axios";
+
 import profileImg from "./img/STSF.png";
 
 //Style
 import './getUsers.css';
-import Nav from "../../../../../components/layout/nav/Nav"
-import { useEffect } from "react/cjs/react.development";
-import axios from "axios";
+import Nav from "../../layout/nav/Nav"
 
 
 export default function UsersGetOne(){
-    
+    const location = useLocation();
+    let email = location.pathname.split('/')[2];
+
     let [user, setUser] = useState({
         id: null,
         name: null,
@@ -18,9 +20,7 @@ export default function UsersGetOne(){
     });
     
     useEffect(() => {
-        const location = useLocation();
-        let email = location.pathname.split('/')[2];
-        
+      
         axios.get(`https://swapi-tukiti.herokuapp.com/api/users/${email}`)
         .then(res => {
             let resUser = res.data;
@@ -28,7 +28,7 @@ export default function UsersGetOne(){
             setUser(resUser);
         })
         .catch(error => console.log(error));
-    }, []);
+    }, [email]);
 
     return(
         <Fragment>

@@ -7,7 +7,7 @@ import axios from "axios";
 import "./App.css"
 
 // import components
-import Home from "./components/home/Home";
+import Home from "./components/home/home";
 
 // character components
 import CharactersGetAll from './components/characters/CharactersGetAll';
@@ -27,14 +27,20 @@ import Register from './components/users/register/register';
 import UsersGetAll from './components/users/getUsers/UsersGetAll';
 import UsersGetOne from './components/users/getUsers/UsersGetOne'
 
-let users = [
-  {name: "Pablo", email: "pablo@gmail.com", pass:"123456"},
-  {name: "Matias", email: "matias@hotmail.com", pass: "11111"},
-  {name: "Matias", email: "matias@hotmail.com", pass: "11111"}
-];
 function App() {
   const [dataV, setDataV] = useState({ results: [] });
   const [dataP, setDataP] = useState({ results: [] });
+  
+  // session state
+  const [session, setSession] = useState({ 
+    exist: false, 
+    token: null, 
+    user: {
+      id: null,
+      name: null,
+      email: null
+    } 
+  });
 
   useEffect(() => {
       const baseURL = "https://swapi-tukiti.herokuapp.com/api";

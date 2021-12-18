@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function User({data}){
 
-    const handleClick = e => {d
+    const handleClick = e => {
         e.preventDefault();
         
         axios
