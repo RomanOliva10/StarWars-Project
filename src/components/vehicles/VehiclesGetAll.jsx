@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -12,8 +12,10 @@ import Spinner from '../layout/spinner/Spinner';
 import Card from '../layout/card/Card';
 import Search from '../layout/search/Search';
 import Footer from '../layout/footer/footer'
+import { SessionContext } from '../../context/sessionContext';
 
 export default function VehiclesGetAll({ data }) {
+    const { session } = useContext(SessionContext);
 
     let [page, setPage] = useState(1);
     let [button, setButton] = useState(true);
@@ -83,7 +85,7 @@ export default function VehiclesGetAll({ data }) {
             <div className="container-all">
                 <div className="buttons">
                     <Search searchData={searchData} searchError={searchError} />
-                    <Link className="add-card" to='/vehicles/create'>Add Vehicle</Link>
+                    { session.exists && <Link className="add-card" to='/vehicles/create'>Add Vehicle</Link> }
                 </div>
                 <div className="container-cards">
                     <NavigationFilter />

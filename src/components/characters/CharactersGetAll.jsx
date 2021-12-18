@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -13,8 +13,11 @@ import Card from '../layout/card/Card';
 import Search from '../layout/search/Search';
 import Footer from '../layout/footer/footer'
 
+// import context
+import { SessionContext } from '../../context/sessionContext';
 
 export default function CharactersGetAll({ data }) {
+    const { session } = useContext(SessionContext);
 
     let [page, setPage] = useState(1);
     let [button, setButton] = useState(true);
@@ -84,7 +87,7 @@ export default function CharactersGetAll({ data }) {
             <div className="container-all">
                 <div className="buttons">
                     <Search searchData={searchData} searchError={searchError} />
-                    <Link className="" to='/characters/create'>Create Character</Link>
+                    { session.exist && <Link className="" to='/characters/create'>Create Character</Link> }
                 </div>
                 <div className="container-cards">
                     <NavigationFilter />

@@ -7,6 +7,7 @@ export default function User({data}){
     const handleClick = e => {
         e.preventDefault();
         
+        
         axios
         .delete(`https://swapi-tukiti.herokuapp.com/api/users/delete/${data.email}`)
         .then(res => {

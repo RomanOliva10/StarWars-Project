@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import './cardGet.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -6,33 +6,35 @@ import axios from 'axios';
 
 //Components
 import { Fragment } from "react/cjs/react.development";
+import { SessionContext } from "../../../context/sessionContext";
 
 //Description mock para rellenar
 const textMock = "TEXT MOCK was a Tatooine farmboy who rose from humble beginnings to become one of the greatest Jedi the galaxy has ever known. Along with his friends Princess Leia and Han Solo, Luke battled the evil Empire, discovered the truth of his parentage, and ended the tyranny of the Sith. A generation later, the location of the famed Jedi master was one of the galaxy’s greatest mysteries. Haunted by Ben Solo’s fall to evil and convinced the Jedi had to end, Luke sought exile on a distant world, ignoring the galaxy’s pleas for help. But his solitude would be interrupted – and Luke Skywalker had one final, momentous role to play in the struggle between good and evil.";
 
 export default function CardGet(prop){
+    const { session } = useContext(SessionContext);
 
-        let {name, description, height, mass, hair_color, skin_color, eye_color, birth_year, gender, image, id} = prop.data;
-        let{model, manufacturer, cost_in_credits, length, max_atmosphering_speed, cargo_capacity, vehicle_class} = prop.data;
+    let {name, description, height, mass, hair_color, skin_color, eye_color, birth_year, gender, image, id} = prop.data;
+    let{model, manufacturer, cost_in_credits, length, max_atmosphering_speed, cargo_capacity, vehicle_class} = prop.data;
 
-        let character = (prop.type === "character")?true:false;
-        let vehicle = (prop.type === "vehicle")?true:false;
+    let character = (prop.type === "character")?true:false;
+    let vehicle = (prop.type === "vehicle")?true:false;
 
-        //Funcion para eliminar en la api
-        const navigate = useNavigate();
-        function fnDelete(){
-    
-            const URL = `https://swapi-tukiti.herokuapp.com/api/${(character)?`characters`:`vehicles`}/delete/${id}`;
-    
-            axios.delete(URL)
-            .then(res => {  
-                alert("Character deleted!");
-                navigate('/characters');
-            })
-            .catch(error => {
-                console.log(error);
-            });      
-        }
+    //Funcion para eliminar en la api
+    const navigate = useNavigate();
+    function fnDelete(){
+
+        const URL = `https://swapi-tukiti.herokuapp.com/api/${(character)?`characters`:`vehicles`}/delete/${id}`;
+
+        axios.delete(URL)
+        .then(res => {  
+            alert("Character deleted!");
+            navigate('/characters');
+        })
+        .catch(error => {
+            console.log(error);
+        });      
+    }
 
     return(
         <div className="container-get">
@@ -154,12 +156,13 @@ export default function CardGet(prop){
                 </div>
                 }
 
+                { session.exists && 
                 <div className="container-buttons-get">
-
                     <Link to={`/${prop.type}s/edit/${id}`}><i className="fas fa-edit"></i></Link>
                     <button onClick={fnDelete} ><i className="fas fa-trash-alt"></i></button>
-
                 </div>
+                }
+                
 
             </div>
 
