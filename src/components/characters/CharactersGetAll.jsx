@@ -87,7 +87,7 @@ export default function CharactersGetAll({ data }) {
             <div className="container-all">
                 <div className="buttons">
                     <Search searchData={searchData} searchError={searchError} />
-                    { session.exist && <Link className="" to='/characters/create'>Create Character</Link> }
+                    { session.exists && <Link className="" to='/characters/create'>Create Character</Link> }
                 </div>
                 <div className="container-cards">
                     <NavigationFilter />

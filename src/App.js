@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Route, Routes } from "react-router-dom";
 import axios from "axios";
 
@@ -7,7 +7,7 @@ import axios from "axios";
 import "./App.css"
 
 // import session context
-import SessionProvider from './context/sessionContext';
+import { SessionContext } from './context/sessionContext';
 
 // import components
 import Home from "./components/home/home";
@@ -32,47 +32,57 @@ import UsersGetOne from './components/users/getUsers/UsersGetOne'
 import LoggedRoute from './components/routes/LoggedRoute';
 
 function App() {
+
+
   const [dataV, setDataV] = useState({ results: [] });
   const [dataP, setDataP] = useState({ results: [] });
+  const { session, setSession } = useContext(SessionContext);
 
   useEffect(() => {
-      const baseURL = "https://swapi-tukiti.herokuapp.com/api";
-      // const baseURL = "http://localhost:4000/api";
 
-      axios.all([
-          axios.get(`${baseURL}/vehicles/`),
-          axios.get(`${baseURL}/characters/`)
-      ])
-      .then(axios.spread((vehicles, characters) => {  
-          setDataV(vehicles.data);
-          setDataP(characters.data);
-      }))
-      .catch(error => console.log(error));
+    if (localStorage.getItem('token') && localStorage.getItem('user')) {
+      setSession({ 
+        exists: true, 
+        token: localStorage.getItem('token'),
+        user: JSON.parse(localStorage.getItem('user'))
+      })
+    }
+
+    const baseURL = "https://swapi-tukiti.herokuapp.com/api";
+    // const baseURL = "http://localhost:4000/api";
+
+    axios.all([
+        axios.get(`${baseURL}/vehicles/`),
+        axios.get(`${baseURL}/characters/`)
+    ])
+    .then(axios.spread((vehicles, characters) => {  
+        setDataV(vehicles.data);
+        setDataP(characters.data);
+    }))
+    .catch(error => console.log(error));
   }, []);
 
 
   return (
-    <SessionProvider>
-      <Routes>
-        <Route index path="/" element={<Home data={[dataV, dataP]}/>} />
+    <Routes>
+      <Route index path="/" element={<Home data={[dataV, dataP]}/>} />
 
-        <Route index path="/login" element={<SignIn/>} />
-        <Route index path="/register" element={<Register/>} />
+      <Route index path="/login" element={<SignIn/>} />
+      <Route index path="/register" element={<Register/>} />
 
-        <Route path="/characters" element={<CharactersGetAll data={dataP} />} />
-        <Route path="/characters/:id" element={<CharactersGetOne />} />
-        <Route path="/characters/create" element={ <LoggedRoute> <CharactersCreate /> </LoggedRoute> } />
-        <Route path="/characters/edit/:id" element={ <LoggedRoute> <CharactersEdit /> </LoggedRoute> } />
+      <Route path="/characters" element={<CharactersGetAll data={dataP} />} />
+      <Route path="/characters/:id" element={<CharactersGetOne />} />
+      <Route path="/characters/create" element={ <LoggedRoute> <CharactersCreate /> </LoggedRoute> } />
+      <Route path="/characters/edit/:id" element={ <LoggedRoute> <CharactersEdit /> </LoggedRoute> } />
 
-        <Route path="/vehicles" element={<VehiclesGetAll data={dataV} />} />
-        <Route path="/vehicles/:id" element={<VehiclesGetOne />} />
-        <Route path="/vehicles/create" element={ <LoggedRoute> <VehiclesCreate /> </LoggedRoute> } />
-        <Route path="/vehicles/edit/:id" element={ <LoggedRoute> <VehiclesEdit /> </LoggedRoute> } />
+      <Route path="/vehicles" element={<VehiclesGetAll data={dataV} />} />
+      <Route path="/vehicles/:id" element={<VehiclesGetOne />} />
+      <Route path="/vehicles/create" element={ <LoggedRoute> <VehiclesCreate /> </LoggedRoute> } />
+      <Route path="/vehicles/edit/:id" element={ <LoggedRoute> <VehiclesEdit /> </LoggedRoute> } />
 
-        <Route path="/users" element={ <LoggedRoute> <UsersGetAll /> </LoggedRoute> } />
-        <Route path="/users/:email" element={ <LoggedRoute> <UsersGetOne /> </LoggedRoute> } />
-      </Routes>
-    </SessionProvider>
+      <Route path="/users" element={ <LoggedRoute> <UsersGetAll /> </LoggedRoute> } />
+      <Route path="/users/:email" element={ <LoggedRoute> <UsersGetOne /> </LoggedRoute> } />
+    </Routes>
   );
 }
 

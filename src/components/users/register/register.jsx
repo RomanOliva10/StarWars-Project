@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from 'react';
+import React, { Fragment, useContext, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -6,10 +6,15 @@ import axios from 'axios';
 // import styles
 import './register.css';
 
+// import context
+import { SessionContext } from '../../../context/sessionContext';
+
 // import components
 import Nav from '../../layout/nav/Nav';
 
 export default function Register() {
+    const { session, setSession } = useContext(SessionContext);
+
     const navigate = useNavigate();
 
     let [emailError, setEmailError] = useState(false);
@@ -35,6 +40,8 @@ export default function Register() {
                 localStorage.setItem('user', JSON.stringify(res.data.user));
                 localStorage.setItem('token', JSON.stringify(res.data.token));
                 
+                setSession({ exists: true, token: res.data.token, user: res.data.user });
+
                 alert('User Created!!');
 
                 navigate('/');
@@ -43,9 +50,6 @@ export default function Register() {
             }
         })
         .catch(error => console.log(error));
-
-
-        /* console.log(userData); */
     }
 
     return (

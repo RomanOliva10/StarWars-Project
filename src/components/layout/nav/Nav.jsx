@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { SessionContext } from '../../../context/sessionContext';
+import UserMenu from '../../users/menu/UserMenu';
 
 // import styles
 import "./nav.css";
 
 export default function Nav() {
+    const { session } = useContext(SessionContext);
+
     return(
         <nav>
         <div className="container">
@@ -18,7 +22,14 @@ export default function Nav() {
                 <li><Link to="/" className="title">Star Wars<br/>Databank</Link></li>
             </ul>
             <ul className="nav">
-                <li><Link to="/login">Sign in</Link></li>
+                <li>
+                    { 
+                        session.exists
+                        ? <UserMenu />
+                        : <Link to="/login">Sign in</Link>
+                    }
+                    
+                </li>
             </ul>
         </div>
     </nav>

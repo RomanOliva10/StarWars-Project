@@ -5,7 +5,7 @@ export const SessionContext = createContext();
 const SessionProvider = props => {
     // session state
     const [session, setSession] = useState({ 
-        exist: false, 
+        exists: false, 
         token: null, 
         user: {
         id: null,
