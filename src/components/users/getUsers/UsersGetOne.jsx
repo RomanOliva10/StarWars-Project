@@ -1,18 +1,34 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { useLocation } from "react-router";
 import profileImg from "./img/STSF.png";
 
 //Style
 import './getUsers.css';
-import Nav from "../../layout/nav/Nav"
+import Nav from "../../../../../components/layout/nav/Nav"
+import { useEffect } from "react/cjs/react.development";
+import axios from "axios";
 
 
-export default function UsersGetOne(prop){
-
-    const location = useLocation();
-    let email = location.pathname.split('/')[2];
-
-    const user = prop.dataU.filter(e => e.email === email)[0];
+export default function UsersGetOne(){
+    
+    let [user, setUser] = useState({
+        id: null,
+        name: null,
+        email: null
+    });
+    
+    useEffect(() => {
+        const location = useLocation();
+        let email = location.pathname.split('/')[2];
+        
+        axios.get(`https://swapi-tukiti.herokuapp.com/api/users/${email}`)
+        .then(res => {
+            let resUser = res.data;
+            resUser.password = "********";
+            setUser(resUser);
+        })
+        .catch(error => console.log(error));
+    }, []);
 
     return(
         <Fragment>
@@ -26,7 +42,7 @@ export default function UsersGetOne(prop){
                         <div className="profile-data">
                             <h2>name : {user.name}</h2>
                             <h2>email : {user.email}</h2>
-                            <h2>password : {user.pass}</h2>
+                            <h2>password : {user.password}</h2>
                         </div>
                     </div>
                 </div>

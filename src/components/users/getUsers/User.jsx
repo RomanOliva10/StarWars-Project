@@ -1,22 +1,40 @@
+import axios from 'axios';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-// import "../getAll.css";
+import { Link } from 'react-router-dom';
 
-export default function User({datos}){
+export default function User({data}){
 
-    const navegate = useNavigate();
-
-    const handleClick = () => {
-        navegate(`/user/${datos.email}`);
+    const handleClick = e => {d
+        e.preventDefault();
+        
+        axios
+        .delete(`https://swapi-tukiti.herokuapp.com/api/users/delete/${data.email}`)
+        .then(res => {
+            alert("User deleted!");
+            window.location.reload(false);
+        })
+        .catch(error => console.log(error));
     }
 
     return(
-
-
-            <tr onClick={handleClick}>
-                <td>{datos.name}</td><td>{datos.email}</td><td>{datos.pass}</td>
-            </tr>
-
-
-    )
+        <tr>
+            <td>{data.name}</td>
+            <td>{data.email}</td>
+            <td>
+                <Link to={`${data.email}`}>
+                    <i className="fas fa-user"></i>
+                </Link>
+            </td>
+            <td>
+                <Link to={`edit/${data.email}`}>
+                    <i className="fas fa-edit"></i>
+                </Link>
+            </td>
+            <td>
+                <a href="!#" onClick={handleClick}>
+                    <i className="fas fa-trash"></i>
+                </a>                
+            </td>
+        </tr>
+    );
 }

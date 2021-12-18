@@ -1,14 +1,30 @@
-import React,{Fragment} from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 
-//Style
+// import styles
 import './getUsers.css';
-import Nav from "../../layout/nav/Nav"
-import User from "./User"
 
-export default function GetAllUsers({dataU}){
+// import components
+import Nav from "../../../../../components/layout/nav/Nav"
+import User from "../../../../../components/users/getUsers/User"
+import Spinner from '../../../../../components/layout/spinner/Spinner';
+
+
+export default function GetAllUsers() {
+    let [userData, setUserData] = useState([]);
+
+    // load users data
+    useEffect(() => {
+        axios.get("https://swapi-tukiti.herokuapp.com/api/users")
+        .then(res => {
+            setUserData(res.data.results);
+        })
+        .catch(error => console.log(error));
+    }, []);
+
     return(
-        // dataU.results.length === 0 ? 
-        // <Spinner msg="loading users" />:
+        userData.length === 0 ? 
+        <Spinner msg="loading users" /> :
         <Fragment>
             <Nav/>
         <div className="container-all-users">
@@ -16,12 +32,12 @@ export default function GetAllUsers({dataU}){
                 <table>
                     <thead>
                         <tr>
-                            <th>Nombre</th><th>Email</th><th>Contraseña</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th colspan="3">Actions</th>
                         </tr>
                     </thead>
-
-                        {dataU.map((ele,idx)=> <User key={idx} datos={ele}/>)}
-
+                        {userData.map((ele,idx)=> <User key={idx} data={ele}/>)}
                 </table>
             </div>
         </div>
