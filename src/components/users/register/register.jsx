@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // import styles
@@ -55,6 +55,9 @@ export default function Register() {
     return (
         <Fragment>
             <Nav/>
+            { 
+            session.exists ?
+            <Navigate to="/" />    :
             <div className="container-form">
                 <div className="form-area">
                     <h1 className='signin-title' >Register</h1>
@@ -109,6 +112,8 @@ export default function Register() {
                     </form>
                 </div>
             </div>
+            }
+            
         </Fragment>
     );
 }

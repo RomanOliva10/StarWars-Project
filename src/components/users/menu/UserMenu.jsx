@@ -17,7 +17,7 @@ export default function UserMenu() {
         <div>
             <a href="!#">Welcome {session.user.name}</a>
             <Link to="/users">View All Users</Link>
-            <Link to={`/users/${session.email}`}>My Profile</Link>
+            <Link to={`/users/${session.user.email}`}>My Profile</Link>
             <a href="!#" onClick={handleClick}>Logout</a>
         </div>
     )

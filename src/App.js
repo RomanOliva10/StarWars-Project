@@ -36,7 +36,7 @@ function App() {
 
   const [dataV, setDataV] = useState({ results: [] });
   const [dataP, setDataP] = useState({ results: [] });
-  const { session, setSession } = useContext(SessionContext);
+  const { setSession } = useContext(SessionContext);
 
   useEffect(() => {
 
@@ -60,7 +60,7 @@ function App() {
         setDataP(characters.data);
     }))
     .catch(error => console.log(error));
-  }, []);
+  }, [setSession]);
 
 
   return (

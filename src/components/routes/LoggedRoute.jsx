@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
 
 // import context
 import { SessionContext } from '../../context/sessionContext';
+import SignIn from '../users/signIn/signIn';
 
 export default function LoggedRoute({ children }) {
-    const { session } = useContext(SessionContext);    
-
-    return session.exists ? children : <Navigate to="/login" />;
+    const { session } = useContext(SessionContext); 
+    
+    return (session.exists ? children : <SignIn />); 
 }

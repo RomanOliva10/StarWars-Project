@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 
 //Estilos
 import './signIn.css';
@@ -11,9 +11,10 @@ import axios from 'axios';
 import { SessionContext } from '../../../context/sessionContext';
 
 export default function SignIn() {
-    const { session, setSession} = useContext(SessionContext);
+    const { setSession} = useContext(SessionContext);
     
     const navigate = useNavigate();
+    const url = useLocation();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -48,7 +49,13 @@ export default function SignIn() {
 
                 alert(`Welcome back ${res.data.user.name} !!`);
 
-                navigate('/');
+                
+                if (url.pathname !== '/login') {
+                    navigate(url.pathname);
+                } else {
+                    navigate('/');
+                }
+                
             }
         })
         .catch(error => console.log(error));
