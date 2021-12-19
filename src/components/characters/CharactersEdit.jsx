@@ -87,8 +87,13 @@ export default function CharactersEdit() {
 
         axios.put(URL, formData)
         .then(res => {  
-            alert("Character edited!");
-            navigate('/characters');
+            console.log(res);
+            if (res.data.details && res.data.details === "Name already exists") {
+                alert("Character already exists!!")
+            } else {
+                alert("Character edited!");
+                navigate('/characters');
+            }
         })
         .catch(error => {
             console.log(error);

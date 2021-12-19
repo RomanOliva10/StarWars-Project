@@ -88,8 +88,12 @@ export default function VehiclesEdit() {
       
         axios.put(URL, formData)
         .then(res => {  
-            alert("Vehicle edited!");
-            navigate('/vehicles');
+            if (res.data.details && res.data.details === "Name already exists") {
+                alert("Vehicle already exists!!")
+            } else {
+                alert("Vehicle edited!");
+                navigate('/vehicles');
+            }
         })
         .catch(error => {
             console.log(error);
