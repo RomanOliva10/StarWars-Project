@@ -24,10 +24,14 @@ th, td{
     padding: 10px;
 }
 
+td i{
+    color: #8aa81d;
+}
+
 thead{
-    background-color: #246355;
-    border-bottom: solid 5px #0f362d;
-    color: white;
+    background-color: #d5ee65;
+    border-bottom: solid 5px #8aa81d;
+    color: #000;
 }
 
 tr:nth-child(even){
@@ -35,7 +39,7 @@ tr:nth-child(even){
 }
 
 tr:hover td{
-    background: #367681;
+    background: #c2d470;
     color: white;
 }
 
@@ -55,7 +59,6 @@ tr:hover{
     position: relative;
     width: 900px;
     height: 80vh;
-    
 }
 
 .red-card{
@@ -111,4 +114,97 @@ img{
     width: 60%;
     height: 50%;
     color: white;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .user-container{
+        position: relative;
+        width: 900px;
+        height: 80vh;
+    }
+    
+    .red-card{
+        margin-left: 350px;
+        position: absolute;
+        height: 100%;
+        width: 350px;
+        border-radius: 15px;
+        background: #cc3843;
+        color: #a32d36;
+    }
+
+    .user-container-all{
+        margin-left: -200px;
+        padding-top: 100px;
+        font-family: 'Star Jedi', arial;
+    }
+    
+    .black-card{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        background-color: #0c1f2c;
+        border-radius: 15px;
+        font-size: 13px;
+    }
+    
+}
+
+@media screen and (max-width: 550px) {
+
+    .black-card{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        bottom: 70px;
+        left: 230px; 
+        background-color: #0c1f2c;
+        border-radius: 15px;
+        font-size: 13px;
+        min-width: 450px;
+    }
+
+    .red-card{
+        margin-left: 350px;
+        position: absolute;
+        height: 80%;
+        width: 250px;
+        border-radius: 15px;
+        background: #cc3843;
+        color: #a32d36;
+    }
+
+    .red-card p{
+        display: none;
+    }
+
+    .profile-img{
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        top: -160px;
+        left: 140px;
+    }
+
+    .profile-img img{
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-data{
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        color: white;
+    }
+
 }
