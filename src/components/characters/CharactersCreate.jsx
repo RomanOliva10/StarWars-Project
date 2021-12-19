@@ -30,9 +30,13 @@ export default function CharactersCreate() {
       
         axios.post(URL, formData)
         .then(res => {  
-            console.log(char);
-            alert("Character created!");
-            navigate('/characters');
+            if (res.data.errors && res.data.name === "SequelizeUniqueConstraintError") {
+                alert("Character already exists!!")
+            } else {
+                alert("Character created!");
+                navigate('/characters');
+            }
+
         })
         .catch(error => {
             console.log(error);

@@ -30,9 +30,12 @@ export default function VehiclesCreate() {
       
         axios.post(URL, formData)
         .then(res => {  
-            console.log(vehicle);
-            alert("Vehicle created!");
-            navigate('/vehicles');
+            if (res.data.errors && res.data.name === "SequelizeUniqueConstraintError") {
+                alert("Vehicle already exists!!")
+            } else {
+                alert("Vehicle created!");
+                navigate('/vehicles');
+            }
         })
         .catch(error => {
             console.log(error);
