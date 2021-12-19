@@ -237,9 +237,9 @@ export default function VehiclesEdit() {
                                         className={errors.image && "error"}
                                         type="file" 
                                         name="image"
-                                        {...register("image", { required: true })} 
+                                        {...register("image")} 
                                     />
-                                    {errors.image && <span className="error">This field is required</span>}
+                                    <span className="info">Empty to keep current image</span>
                                 </div>
 
                                 <div className="form-group">
