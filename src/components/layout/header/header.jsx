@@ -12,7 +12,7 @@ export default function Header() {
             </h2>
             <div className="main-content">
                 <div className="title-content">
-                    <p className="content-header">EPISODES IV-VI<br />A Movie Marathon</p>
+                    <p className="content-header">WELCOME TO<br />Star Wars Fan Page</p>
                     <br/>
                     <p className="content-body">
                         After years of galactic silence, civilization is on the brink of a new Star Wars release. Now, with the Force preparing to awaken, the people of Earth seek solace in films of old. With nowhere to turn, they gather in great numbers and watch the original trilogy without rest. Three films. 6 hours. 24 minutes. Popcorn. Slushies. Total elation.

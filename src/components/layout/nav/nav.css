@@ -53,6 +53,11 @@ li a {
     position:relative;
 }
 
+.nav li p {
+    cursor: pointer;
+    color: #FFE81F;
+}
+
 .title{
     padding-left: 40px;
 }
