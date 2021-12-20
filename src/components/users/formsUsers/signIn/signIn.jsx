@@ -98,8 +98,8 @@ export default function SignIn({change}) {
                                     {errors.password && <span className="error">This field is required</span>}
 
                                     <span className="icon-signin" onClick={changeVisibilityPass}>
-                                        <i className="fas fa-eye disabled"></i>
-                                        <i className="fas fa-eye-slash"></i>
+                                        <i className="fas fa-eye"></i>
+                                        <i className="fas fa-eye-slash disabled"></i>
                                     </span>
                             </div>
 

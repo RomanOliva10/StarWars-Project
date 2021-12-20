@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment, useContext, useEffect, useRef } from 'react';
 
 //Estilos
 import './userForms.css';
@@ -8,12 +8,22 @@ import imgLogin from './img/star-wars-poster.jpg'
 import SignIn from './signIn/signIn';
 import SignUp from './signUp/signUp';
 import Nav from '../../layout/nav/Nav';
+import { SessionContext } from '../../../context/sessionContext';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function UserForms() {
+    const {session} = useContext(SessionContext);
+    const navigate = useNavigate();
 
     const referenciaOverlay = useRef(null);
     const sign = useRef(null);
+
+    useEffect(() => {
+        if (session.exists) {
+            navigate('/');
+        }
+    }, [session, navigate]);
 
     const overlayForm = () => {
 
