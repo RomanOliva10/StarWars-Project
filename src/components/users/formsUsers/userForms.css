@@ -46,25 +46,6 @@
 /* Formularios */
 
 
-/* Container Register */
-/* .container-form-register{
-    position: absolute;
-    left: 0;
-    width: 40%;
-    height: 100%;
-    overflow: hidden;
-    transition: transform 0.6s ease-in-out;
-    border-radius: 15px 0 0 15px;
-    border: 2px solid pink;
-    z-index: 1;
-}
-
-.container-form-register .translate-effect{
-    border: 2px solid pink;
-    transform: translateX(100%);
-}
- */
-
 
 .sign-title{
     text-align: center;
@@ -76,6 +57,7 @@
     padding: 20px 10px;
     color: red;
     text-align: center;
+    margin-top: 10px;
 }
 
 

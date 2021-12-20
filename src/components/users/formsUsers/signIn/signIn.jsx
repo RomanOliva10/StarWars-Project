@@ -24,7 +24,7 @@ export default function SignIn({change}) {
 
     const initialState = true;
     const [stateTest, setStateTest] = useState(initialState);
-    const [loginError, setLoginError] = useState([false, '']);
+    const [loginError, setLoginError] = useState(validador);
 
     const changeVisibilityPass = (e) => {
 
@@ -73,7 +73,7 @@ export default function SignIn({change}) {
                     <div  className='form-area-login' >
                         <h1 className='sign-title'>Sign In</h1>
 
-                        {validador && 
+                        {loginError && 
 
                             <div className='container-error'>
                                 <p>The credentials you entered are incorrect.</p>

@@ -103,6 +103,14 @@ export default function SignUp({change, signin}) {
                         </div>
                         <div className="btn-create" onClick={change} >Already registered? Click to SIGN IN</div>
                     </form>
+                    {emailError && 
+
+                                <div className='container-error'>
+                                    <p>The credentials you entered are incorrect.</p>
+                                </div>
+
+                    }
+
                 </div>
             </div>
     );
