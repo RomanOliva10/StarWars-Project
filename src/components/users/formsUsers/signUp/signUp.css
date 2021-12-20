@@ -1,0 +1,85 @@
+/* Container SignUp */
+
+.container-form-register{
+    position: absolute;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    transform: translateX(0);
+    z-index: 2;
+    overflow: hidden;
+}
+
+.signup{
+    padding-top: 20px;
+}
+
+.form-area-signup{
+    font-family: DIN;
+    font-size: 24px;
+    color: #ddd;
+    padding: 40px 50px 0 50px;
+    height: 100%;
+    width: 100%;
+    border-radius: 0 15px 15px 0;
+    z-index: 3;
+}
+
+.form-area-signup .btn-create{
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    display: block;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.form-area-signup .btn-create:hover{
+    color: var(--selection);
+}
+
+.container-btn-signup{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container-btn-signup .btn-signup {
+    display: inline;
+    background-color: #282727;
+    font-size: 2rem;
+    padding: 10px 15px;
+    color: #f4f5f5;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 0;
+    outline: 0.8px solid white;
+}
+
+.btn-signup:hover {
+    outline: 0.8px solid var(--selection);
+    color: #282727;
+    background-color: var(--selection);
+}
+
+@media screen and (max-width: 1024px) {
+
+
+    .form-area-signup{
+        padding: 10px 50px 0 50px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .container-form-register{
+        background-color: var(--background);
+        width: 80%;
+        height: 85%;
+        margin: 0 auto;
+        position: unset;
+        border-radius: 10px;
+    }
+}

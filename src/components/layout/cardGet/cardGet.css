@@ -7,6 +7,11 @@ body{
 :root{
     --terciario: #FFE81F;
 }
+
+.container-get{
+    margin-top: 15px;
+}
+
 /* Imagen */
 
 .img-container-get{
@@ -71,7 +76,8 @@ body{
     font-family: "Star Jedi";
     color: white;
     font-size: 3rem;
-    padding: 0 5px;
+    padding: 0 10px;
+    white-space: nowrap;
 
 }
 
@@ -80,7 +86,7 @@ body{
 .description-container-get .description-get{
     display: flex;
     flex-wrap: nowrap;
-    padding-top: 150px;
+    padding-top: 50px;
 }
 
 .description-container-get .description-get hr{

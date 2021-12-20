@@ -31,6 +31,7 @@ import UsersGetAll from './components/users/getUsers/UsersGetAll';
 import UsersGetOne from './components/users/getUsers/UsersGetOne'
 import LoggedRoute from './components/routes/LoggedRoute';
 import UsersEdit from './components/users/editUsers/UsersEdit';
+import UserForms from './components/users/formsUsers/userForms';
 
 function App() {
 
@@ -68,7 +69,7 @@ function App() {
     <Routes>
       <Route index path="/" element={<Home data={[dataV, dataP]}/>} />
 
-      <Route index path="/login" element={<SignIn/>} />
+      <Route index path="/login" element={<UserForms/>} />
       <Route index path="/register" element={<Register/>} />
 
       <Route path="/characters" element={<CharactersGetAll data={dataP} />} />

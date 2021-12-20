@@ -18,7 +18,7 @@ export default function Footer(){
 
                 <div className="col-footer-logo">
                     <h4 className="title-footer">Star Wars &#174;</h4>
-                    <p className="description-footer">Proyecto final del BootCamp 2021 Dev Place. La aplicacion se basa en la tematica de Star Wars. Los integrantes son Pablo Nader, Pablo Rizzo, Roman Oliva y Matias Hidalgo.</p>
+                    <p className="description-footer">Final project of the BootCamp 2021 Dev Place. The application is based on the Star Wars theme. The members are Pablo Nader, Pablo Rizzo, Roman Oliva and Matias Hidalgo.</p>
                 </div>
                 
                 <hr className="vertical-footer"/>
@@ -73,7 +73,7 @@ export default function Footer(){
 
             <hr className="horizontal-footer"/>
 
-            <span className="derechos-footer">©2021 StarWars Bootcamp. Derechos reservados.</span>
+            <span className="derechos-footer">©2021 StarWars Bootcamp. All rights reserved.</span>
             
         </footer>
     )
