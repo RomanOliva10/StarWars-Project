@@ -1,4 +1,4 @@
-.disabled{
+.hidden{
     display: none;
 }
 
@@ -133,6 +133,13 @@
 
 }
 
+.container-ref{
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+}
+
 @media screen and (max-width: 1024px) {
 
 
@@ -157,5 +164,11 @@
     .container-img-form{
         z-index: 1;
         width: 100%;
+    }
+
+    .container-ref{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

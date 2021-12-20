@@ -73,9 +73,9 @@
 
 @media screen and (max-width: 600px) {
 
+    
 
     .container-form-login{
-        display: none;
         background-color: var(--background);
         width: 80%;
         height: 70%;

@@ -15,17 +15,20 @@ import Nav from '../../layout/nav/Nav';
 export default function UserForms() {
 
     const referenciaOverlay = useRef(null);
-    const signin = useRef(null)
-    const signup = useRef(null)
+    const sign = useRef(null);
 
     const overlayForm = () => {
 
         if(window.matchMedia("(min-width: 601px)").matches){
             referenciaOverlay.current.classList.toggle('active-right');
         }else{
-            console.log(signin);
-            /* signin.classList.toggle('disabled');
-            signin.classList.toggle('disabled'); */
+            
+            let sin = sign.current.children[0];
+            let sup = sign.current.children[1];
+
+            sin.classList.toggle('hidden');
+            sup.classList.toggle('hidden');
+
         }
 
         
@@ -40,9 +43,14 @@ export default function UserForms() {
                     <img src={imgLogin} alt="" />
                 </div>
 
-                <SignIn id="sign-in" change={overlayForm}/>
+
+                <div ref={sign} className='container-ref'> 
+                    
+                    <SignIn id="sign-in" change={overlayForm} />
+                    <SignUp id="sign-up" change={overlayForm} />
+                    
+                </div>
                 
-                <SignUp id="sign-up" change={overlayForm} />
 
             </div>
 

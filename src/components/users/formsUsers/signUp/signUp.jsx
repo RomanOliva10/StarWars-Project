@@ -51,7 +51,7 @@ export default function SignUp({change, signin}) {
     }
 
     return (
-            <div className="container-form-register" ref={signin}>
+            <div className="container-form-register hidden" ref={signin}>
                 <div className="form-area-signup">
                     <h1 className='sign-title signup-title-responsive' >Sign Up</h1>
                     <form className='signup' onSubmit={handleSubmit(onSubmit)}>
