@@ -35,7 +35,7 @@ export default function GetAllUsers({ data }) {
             .then(res => {  
                 let response = res.data.results;
                 if (response.length === 0) {
-                    setUserData(userData);
+                    setUserData(prevData => prevData);
                     setSearchError(true);
                 } else {
                     setUserData(response);
@@ -44,7 +44,7 @@ export default function GetAllUsers({ data }) {
             })
             .catch(error => console.log(error));
         } else {
-            setUserData(userData);
+            setUserData(prevData => prevData);
         }
     }, [search, data]);
 
@@ -66,10 +66,12 @@ export default function GetAllUsers({ data }) {
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th colspan="3">Actions</th>
+                                <th colSpan="3">Actions</th>
                             </tr>
                         </thead>
+                        <tbody>
                             {userData.map((ele,idx)=> <User key={idx} data={ele}/>)}
+                        </tbody>
                     </table>
                 </div>
             </div>

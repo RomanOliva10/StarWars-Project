@@ -25,8 +25,6 @@ import VehiclesCreate from './components/vehicles/VehiclesCreate';
 import VehiclesEdit from './components/vehicles/VehiclesEdit';
 
 // login & user components
-import SignIn from './components/users/signIn/signIn';
-import Register from './components/users/register/register';
 import UsersGetAll from './components/users/getUsers/UsersGetAll';
 import UsersGetOne from './components/users/getUsers/UsersGetOne'
 import LoggedRoute from './components/routes/LoggedRoute';
@@ -70,7 +68,6 @@ function App() {
       <Route index path="/" element={<Home data={[dataV, dataP]}/>} />
 
       <Route index path="/login" element={<UserForms/>} />
-      <Route index path="/register" element={<Register/>} />
 
       <Route path="/characters" element={<CharactersGetAll data={dataP} />} />
       <Route path="/characters/:id" element={<CharactersGetOne />} />

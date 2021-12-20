@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { Fragment } from 'react/cjs/react.development';
+import React, { useContext, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { SessionContext } from '../../../context/sessionContext';
 import UserMenu from '../../users/menu/UserMenu';
@@ -24,14 +23,11 @@ export default function Nav() {
                         <li><Link to="/">Star Wars<br/>Databank</Link></li>
                     </ul>
                     <ul className="nav">
-                        <li>
-                            { 
-                                session.exists
-                                ? <UserMenu />
-                                : <Link to="/login">Sign in</Link>
-                            }
-                            
-                        </li>
+                        { 
+                            session.exists
+                            ? <UserMenu />
+                            :<li><Link to="/login">Sign in</Link></li>
+                        }
                     </ul>
                 </div>
             </nav>

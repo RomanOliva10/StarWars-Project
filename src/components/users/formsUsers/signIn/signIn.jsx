@@ -1,8 +1,7 @@
-import React, { useRef, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
-import { Fragment } from 'react/cjs/react.production.min';
 import axios from 'axios';
 import { SessionContext } from '../../../../context/sessionContext';
 
@@ -105,7 +104,7 @@ export default function SignIn({change}) {
                             </div>
 
                             <div className="container-btn-login ">
-                                <button className={"btn-login"} type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                                <button className={"btn-login"} type="submit"><i className="fas fa-sign-in-alt"></i></button>
                             </div>
 
                             <div className="btn-create" onClick={change} >Create an Account</div>

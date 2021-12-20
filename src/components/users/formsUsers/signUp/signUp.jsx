@@ -1,6 +1,6 @@
-import React, { Fragment, useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // styles
@@ -11,7 +11,7 @@ import { SessionContext } from '../../../../context/sessionContext';
 
 
 export default function SignUp({change, signin}) {
-    const { session, setSession } = useContext(SessionContext);
+    const { setSession } = useContext(SessionContext);
 
     const navigate = useNavigate();
 

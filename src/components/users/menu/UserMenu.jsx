@@ -15,7 +15,7 @@ export default function UserMenu() {
     return (
         // Hay que estilar esto
         <Fragment>
-            <li><a href="!#">{session.user.name}    <i class="fas fa-chevron-down"></i></a>
+            <li><a href="!#">{session.user.name}    <i className="fas fa-chevron-down"></i></a>
                 <ul>
                     <li><Link to="/users">View All Users</Link></li>
                     <li><Link to={`/users/${session.user.email}`}>My Profile</Link></li>
