@@ -20,8 +20,8 @@ export default function Nav() {
                         <li><a href="https://github.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a></li>
                         <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a></li>
                     </ul>
-                    <ul className="nav">
-                        <li><Link to="/" className="title">Star Wars<br/>Databank</Link></li>
+                    <ul className="nav title">
+                        <li><Link to="/">Star Wars<br/>Databank</Link></li>
                     </ul>
                     <ul className="nav">
                         <li>

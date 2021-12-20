@@ -1,5 +1,4 @@
 .star-wars-intro {
-	padding-top: 100px;
 	width: 100%;
 	height: 100%;
 	font-family: "Droid Sans", arial, verdana, sans-serif;
@@ -20,10 +19,6 @@
 	opacity: 0;
 	z-index: 1;
 	text-align: center;
-	-webkit-animation: intro 2s ease-out;
-	-moz-animation: intro 2s ease-out;
-	-ms-animation: intro 2s ease-out;
-	-o-animation: intro 2s ease-out;
 	animation: intro 2s ease-out;
 }
   
@@ -90,9 +85,8 @@
   
 .star-wars-intro .main-logo {
 	position: absolute;
-	width: 2.6em;
-	left: 50%;
-	top: 20vh;
+	left: 17%;
+	top: 15vh;
 	font-size: 10em;
 	text-align: center;
 	margin-left: -1.3em;
@@ -102,70 +96,13 @@
 	text-shadow: -2px -2px 0 #EBD71C, 2px -2px 0 #EBD71C, -2px 2px 0 #EBD71C, 2px 2px 0 #EBD71C;
 	opacity: 0;
 	z-index: 1;
-	-webkit-animation: logo 5s ease-out 2.5s;
-	-moz-animation: logo 5s ease-out 2.5s;
-	-ms-animation: logo 5s ease-out 2.5s;
-	-o-animation: logo 5s ease-out 2.5s;
 	animation: logo 5s ease-out 2.5s;
-}
-  
-.star-wars-intro .main-logo > img {
-	max-width: 100%;
-}
-  
-@-webkit-keyframes intro {
-	0% { opacity: 1; }
-	90% { opacity: 1; }
-	100% { opacity: 0; }
-}
-  
-@-moz-keyframes intro {
-	0% { opacity: 1; }
-	90% { opacity: 1; }
-	100% { opacity: 0; }
-}
-  
-@-ms-keyframes intro {
-	0% { opacity: 1; }
-	90% { opacity: 1; }
-	100% { opacity: 0; }
-}
-  
-@-o-keyframes intro {
-	0% { opacity: 1; }
-	90% { opacity: 1; }
-	100% { opacity: 0; }
 }
   
 @keyframes intro {
 	0% { opacity: 1; }
 	90% { opacity: 1; }
 	100% { opacity: 0; }
-}
-  
-  
-@-webkit-keyframes logo {
-	0% { -webkit-transform: scale(1); opacity: 1; }
-	50% { opacity: 1; }
-	100% { -webkit-transform: scale(0.1); opacity: 0; }
-}
-  
-@-moz-keyframes logo {
-	0% { -moz-transform: scale(1); opacity: 1; }
-	50% { opacity: 1; }
-	100% { -moz-transform: scale(0.1); opacity: 0; }
-}
-  
-@-ms-keyframes logo {
-	0% { -ms-transform: scale(1); opacity: 1; }
-	50% { opacity: 1; }
-	100% { -ms-transform: scale(0.1); opacity: 0; }
-}
-  
-@-o-keyframes logo {
-	0% { -o-transform: scale(1); opacity: 1; }
-	50% { opacity: 1; }
-	100% { -o-transform: scale(0.1); opacity: 0; }
 }
   
 @keyframes logo {
@@ -188,5 +125,18 @@
 	  top: 100%;
 	  animation: scroll 100s linear 4s forwards;
 	}
+
+	.star-wars-intro .main-logo {
+		top: 10vh;
+		left: 15%;
+		font-size: 5em;
+	}
 }
-  
+
+
+@media screen and (max-width: 500px) {
+	.star-wars-intro .main-logo {
+		left: 20%;
+		font-size: 4em;
+	}
+}

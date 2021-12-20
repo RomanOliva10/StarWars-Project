@@ -1,6 +1,3 @@
-.hidden{
-    display: none;
-}
 
 :root{
     --selection: #FFE81F;
@@ -141,17 +138,20 @@
 }
 
 @media screen and (max-width: 1024px) {
-
-
+    
+    
     .container-user-form{
         width: 90%;
     }
-
+    
 }
 
 @media screen and (max-width: 600px) {
-
-
+    
+    .hidden{
+        display: none;
+    }
+    
     .container-user-form{
         width: 100%;
         margin: 0 auto 0 auto;

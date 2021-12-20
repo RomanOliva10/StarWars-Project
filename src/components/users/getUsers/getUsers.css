@@ -1,3 +1,7 @@
+@import url(//db.onlinewebfonts.com/c/0c724f6aa457310440cf8949c615cbd7?family=Star+Jedi);
+
+@font-face {font-family: "Star Jedi"; src: url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.eot"); src: url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.woff") format("woff"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.svg#Star Jedi") format("svg"); }
+
 *{
     margin: 0;
     padding: 0;
@@ -6,6 +10,10 @@
 
 .container-all-users{
     padding-top:120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
 .table-container{
@@ -75,8 +83,9 @@ tr:hover{
     max-height: 550px;
     transform: rotate(-90deg);
     font-size: 70px;
-    left: -140px;
+    left: -180px;
     bottom: 210px;
+    font-family: "Star Jedi";
 }
 
 .black-card{
@@ -108,12 +117,17 @@ img{
 }
 
 .profile-data{
+    font-family: 'Star Jedi', arial;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 60%;
     height: 50%;
     color: white;
+}
+
+.profile-data h2{
+    font-family: 'Star Jedi', arial;
 }
 
 @media screen and (max-width: 1024px) {
@@ -134,6 +148,14 @@ img{
         color: #a32d36;
     }
 
+    .red-card p {
+        transform: none;
+        position: initial;
+        text-align: center;
+        font-family: "Star Jedi";
+        font-size: 3rem;
+    }
+
     .user-container-all{
         margin-left: -200px;
         padding-top: 100px;
@@ -149,46 +171,59 @@ img{
         border-radius: 15px;
         font-size: 13px;
     }
+
+    .profile-data h2{
+        font-size: 1rem;
+    }
     
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
+    
+    .container-all-users form .form-search, .form-search:focus{
+        width: 74%;
+    }
+
+
+    .table-container {
+        width: 100%;
+    }
+    
+    th, td {
+        padding: 5px;
+    }
 
     .black-card{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        position: absolute;
-        width: 50%;
+        width: 60%;
         height: 50%;
         bottom: 70px;
-        left: 230px; 
+        left: 0;
         background-color: #0c1f2c;
         border-radius: 15px;
         font-size: 13px;
-        min-width: 450px;
+        transform: translate(205px, 10px);
     }
 
     .red-card{
-        margin-left: 350px;
-        position: absolute;
+        margin-left: 0;
         height: 80%;
         width: 250px;
         border-radius: 15px;
         background: #cc3843;
         color: #a32d36;
+        transform: translate(240px, 10px);
     }
 
     .red-card p{
-        display: none;
+        font-size: 2rem;
     }
 
     .profile-img{
-        position: absolute;
-        width: 400px;
-        height: 400px;
-        top: -160px;
-        left: 140px;
+        transform: translate(60px, -135px);
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
     }
 
     .profile-img img{
@@ -197,7 +232,6 @@ img{
     }
 
     .profile-data{
-        
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -207,4 +241,8 @@ img{
         color: white;
     }
 
+    .profile-data h2{
+        font-size: 0.7rem;
+    }
+    
 }

@@ -111,7 +111,7 @@ export default function VehiclesEdit() {
                     <Spinner msg="loading" /> :
                     <Fragment>
                         <div className="form-area">
-                            <h3>edit vehicle</h3>
+                            <h1>Edit Vehicle</h1>
                             <form method="post" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
                                 {/* Name */}
                                 <div className="form-group">

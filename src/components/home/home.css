@@ -12,7 +12,8 @@
     flex-direction: column;
     width: 80%;
     min-height: 100vh;
-    /* padding-top: 150px; */
+    padding-top: 100px;
+    grid-gap: 14px;
     gap: 14px;
 }
 

@@ -8,10 +8,14 @@ import './getUsers.css';
 import Nav from "../../layout/nav/Nav"
 import User from "../../users/getUsers/User"
 import Spinner from '../../layout/spinner/Spinner';
+import Search from '../../layout/search/Search';
 
 
-export default function GetAllUsers() {
+export default function GetAllUsers({ data }) {
     let [userData, setUserData] = useState([]);
+    let [search, setSearch] = useState("");
+    let [searchError, setSearchError] = useState(false) 
+
 
     // load users data
     useEffect(() => {
@@ -22,25 +26,53 @@ export default function GetAllUsers() {
         .catch(error => console.log(error));
     }, []);
 
+    useEffect(() => {
+        if (search !== "") {
+            const URL = `https://swapi-tukiti.herokuapp.com/api/users/?name=${search}`;
+            // const URL = `http://localhost:4000/api/users/?name=${page}`;
+            console.log(URL);
+            axios.get(URL)
+            .then(res => {  
+                let response = res.data.results;
+                if (response.length === 0) {
+                    setUserData(userData);
+                    setSearchError(true);
+                } else {
+                    setUserData(response);
+                    setSearchError(false);
+                } 
+            })
+            .catch(error => console.log(error));
+        } else {
+            setUserData(userData);
+        }
+    }, [search, data]);
+
+    const searchData = data => {
+        setSearch(data);
+    }
+
+
     return(
         userData.length === 0 ? 
         <Spinner msg="loading users" /> :
         <Fragment>
             <Nav/>
-        <div className="container-all-users">
-            <div className='table-container'>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th colspan="3">Actions</th>
-                        </tr>
-                    </thead>
-                        {userData.map((ele,idx)=> <User key={idx} data={ele}/>)}
-                </table>
+            <div className="container-all-users">
+                <Search searchData={searchData} searchError={searchError}/>
+                <div className='table-container'>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th colspan="3">Actions</th>
+                            </tr>
+                        </thead>
+                            {userData.map((ele,idx)=> <User key={idx} data={ele}/>)}
+                    </table>
+                </div>
             </div>
-        </div>
         </Fragment>
     )
 }

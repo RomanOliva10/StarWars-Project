@@ -47,7 +47,7 @@ export default function VehiclesCreate() {
             <Nav />
             <div className="container-form">
                 <div className="form-area">
-                    <h3>add vehicle</h3>
+                    <h1>Add Vehicle</h1>
                     <form method="post" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
                         {/* Name */}
                         <div className="form-group">
