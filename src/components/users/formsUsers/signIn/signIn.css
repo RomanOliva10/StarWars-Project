@@ -1,3 +1,7 @@
+.disabled{
+    display: none;
+}
+
 /* Container Login */
 .container-form-login{
     position: absolute;

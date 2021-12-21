@@ -9,7 +9,7 @@
 	position: relative;
 }
   
-.star-wars-intro p.intro-text {
+.star-wars-intro .intro-text {
 	position: relative;
 	max-width: 16em;
 	font-size: 200%;
@@ -89,7 +89,7 @@
 	top: 15vh;
 	font-size: 10em;
 	text-align: center;
-	margin-left: -1.3em;
+	/* margin-left: -1.3em; */
 	line-height: 0.8em;
 	letter-spacing: -0.05em;
 	color: #000;
@@ -115,6 +115,14 @@
 	0% { top: 100%; }
 	100% { top: -170%; }
 }
+
+@media screen and (max-width: 1024px) {
+
+	.star-wars-intro .main-logo {
+		margin-left: -1.3em;
+	}
+}
+
   
 @media screen and (max-width: 720px) {
 	.star-wars-intro .main-content {
