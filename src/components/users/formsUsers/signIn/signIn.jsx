@@ -1,8 +1,7 @@
-import React, { useRef, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
-import { Fragment } from 'react/cjs/react.production.min';
 import axios from 'axios';
 import { SessionContext } from '../../../../context/sessionContext';
 
@@ -99,13 +98,13 @@ export default function SignIn({change}) {
                                     {errors.password && <span className="error">This field is required</span>}
 
                                     <span className="icon-signin" onClick={changeVisibilityPass}>
-                                        <i className="fas fa-eye disabled"></i>
-                                        <i className="fas fa-eye-slash"></i>
+                                        <i className="fas fa-eye"></i>
+                                        <i className="fas fa-eye-slash disabled"></i>
                                     </span>
                             </div>
 
                             <div className="container-btn-login ">
-                                <button className={"btn-login"} type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                                <button className={"btn-login"} type="submit"><i className="fas fa-sign-in-alt"></i></button>
                             </div>
 
                             <div className="btn-create" onClick={change} >Create an Account</div>

@@ -24,7 +24,9 @@
     border-radius: 0 15px 15px 0;
     z-index: 4;
 }
-
+.disabled {
+    display: none;
+}
 .form-group-sign .icon-signin{
     position: absolute;
     display: flex;
