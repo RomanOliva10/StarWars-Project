@@ -30,8 +30,8 @@ export default function Footer(){
                         <div className="item-contact">
                             <h5>Roman Oliva</h5>
                             <ul className="redes-footer">
-                                <li><a href="!#" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
-                                <li><a href="https://github.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/roman-oliva/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
+                                <li><a href="https://github.com/RomanOliva10" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a></li>
                                 <li><a href="mailto:romanoliva7@gmail.com"><i className="fas fa-envelope"></i></a></li>
                             </ul>
                         </div>
@@ -40,7 +40,7 @@ export default function Footer(){
                             <h5>Pablo Nader</h5>
                             <ul className="redes-footer">
                                 <li><a href="!#" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
-                                <li><a href="https://github.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a></li>
+                                <li><a href="https://github.com/PablogRizzo" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a></li>
                                 <li><a href="mailto:hm.pablito@gmail.com"><i className="fas fa-envelope"></i></a></li>
                             </ul>
                         </div>
@@ -48,8 +48,8 @@ export default function Footer(){
                         <div className="item-contact">
                             <h5>Pablo Rizzo</h5>
                             <ul className="redes-footer">
-                                <li><a href="!#" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
-                                <li><a href="https://github.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/pablorizzo/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
+                                <li><a href="https://github.com/pablo-nader" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a></li>
                                 <li><a href="mailto:pablog.rizzo@gmail.com"><i className="fas fa-envelope"></i></a></li>
                             </ul>
                         </div>
