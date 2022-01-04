@@ -59,6 +59,7 @@ li a {
 }
 
 .title{
+    text-align: center;
     padding-left: 40px;
 }
 
@@ -67,6 +68,10 @@ li a {
 }
 
 @media screen and (max-width: 550px) {
+    .title{
+        padding-left: 0px;
+    }
+    
     .hidden{
         display: none;
     }
