@@ -85,7 +85,8 @@
   
 .star-wars-intro .main-logo {
 	position: absolute;
-	left: 17%;
+	left: 0;
+	right: 0;
 	top: 15vh;
 	font-size: 10em;
 	text-align: center;

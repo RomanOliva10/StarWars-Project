@@ -8,7 +8,7 @@ export default function Header() {
                 A few days ago, during...
             </p>
             <h2 className="main-logo">
-                <p>Star Wars DataBank</p>
+                <p>Star Wars<br/>DataBank</p>
             </h2>
             <div className="main-content">
                 <div className="title-content">
